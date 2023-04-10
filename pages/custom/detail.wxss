@@ -1,0 +1,40 @@
+/* pages/custom/detail.wxss */
+page{
+  background-color:#fff ;
+}
+.margin-t{
+  height:20rpx;
+  background-color: #f9f9f9;
+}
+.container-page{
+  padding: 60rpx 50rpx;
+}
+.info-t{
+  font-size:36rpx;
+  padding-left:15rpx;
+  color:#333333;
+  line-height:34rpx;
+  border-left:10rpx solid #004ce5;
+  margin-bottom:20rpx;
+}
+.line-c{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top:50rpx;
+  font-size:28rpx;
+}
+.l-circle{
+  width:12rpx;
+  height:12rpx;
+  border-radius:50%;
+  background-color: #666666;
+}
+.line-t{
+  margin:0 15rpx;
+}
+.content-btn{
+  width:350rpx;
+  height:90rpx;
+  margin: 240rpx auto 50rpx;
+}
