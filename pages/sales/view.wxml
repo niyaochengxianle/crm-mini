@@ -1,2 +1,43 @@
 <!--pages/sales/view.wxml 查看业务员信息-->
-<text>pages/sales/view.wxml</text>
+<view class="sales-img">
+  <image src="/image/base.png" style="width:100%;height:100%;"  fit="contain"></image>
+</view>
+<view class="sales-s">
+  <text>基本信息</text>
+</view>
+<!-- 显示信息 -->
+<view wx:if="{{!isEdit}}">
+  <view class="sales-info">
+    <text>姓名：</text>
+  </view>
+  <view class="sales-info">
+    <text>联系电话：</text>
+  </view>
+  <view class="container-btn">
+    <van-button color="#333333" type="default" plain bind:click="showEdit">编 辑</van-button>
+    <van-button color="#004ce5"   type="default" bind:click="showPopup">邀 请</van-button>
+  </view>
+</view>
+<!-- 编辑信息 -->
+<view wx:if="{{isEdit}}">
+  <view class="info-top" >
+    <view class="input-l">
+      <text>姓名*</text>
+    </view>
+    <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{salesInfo.name}}"  label="请输入姓名"  placeholder="" />
+    <view class="input-l">
+      <text>手机号*</text>
+    </view>
+    <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{salesInfo.phone}}"  label="请输入手机号"  placeholder="" />
+</view>
+<view class="container-btn">
+  <van-button color="#333333" type="default" plain bind:tap="closeEdit">取 消</van-button>
+  <van-button color="#004ce5"  bind:tap="save">提 交</van-button>
+</view>
+</view>
+<van-popup show="{{ show }}" bind:close="onClose">
+  <view class="container-p">
+    <image src='' style="height:360rpx;width:360rpx;border:1px solid" ></image>
+  </view>
+</van-popup>
+

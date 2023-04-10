@@ -1,1 +1,50 @@
 /* pages/sales/view.wxss */
+page{
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sales-img{
+  width:80rpx;
+  height:80rpx;
+  margin:160rpx auto 30rpx;
+}
+.sales-s{
+  font-size:44rpx;
+  color:#333;
+  text-align: center;
+  margin-bottom: 50rpx;
+}
+.sales-info{
+  font-size:32rpx;
+  color:#333333;
+  margin-top:40rpx;
+}
+.container-btn{
+  margin-top:200rpx;
+}
+.container-btn .van-button{
+  height:80rpx;
+  width:230rpx;
+  margin:25rpx;
+  font-size:32rpx;
+}
+.container-p{
+  width: 550rpx;
+  height: 660rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.van-popup{
+  border-radius:20rpx;
+}
+.input-l{
+  margin-top:60rpx;
+  font-size:24rpx;
+  color:#333;
+  padding-left:30rpx;
+}

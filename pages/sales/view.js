@@ -5,9 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show:false,
+    isEdit:false,
+  },
+  //打开二维码显示
+  showPopup() {
+    this.setData({ show: true });
+  },
+  // 关闭二维码显示
+  onClose() {
+    this.setData({ show: false });
+  },
+  // 编辑
+  showEdit() {
+    this.setData({ isEdit: true });
+  },
+  // 取消编辑
+  closeEdit(){
+    this.setData({ isEdit: false });
+  },
+  // 保存编辑信息
+  save(){
 
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
