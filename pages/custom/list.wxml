@@ -1,2 +1,30 @@
 <!--pages/custom/list.wxml-->
-<text>pages/custom/list.wxml</text>
+<view class="task-box">
+    <van-search
+        value="{{ page.keyword }}"
+        left-icon="/image/admin/search.png"
+        background="#f9f9f9"
+        placeholder="请输入搜索关键词"
+        />
+    <view class="list-c">
+        <view  bind:tap="toDetail" data-task="{{item}}"
+          class="apply-item" wx:for="{{list}}" wx:key="index"  open-type="navigateTo">
+        <view class="box-right">
+            <view class="box-right-item1">
+                <view class="title">{{ item.name }}</view>
+                <view class="list-b">联系方式：13544667799</view>
+            </view>
+            <view class="list-y">
+                <!-- <text> 已回访</text> -->
+                <view class="type-tag">
+                  已回访
+                </view>
+            </view>
+        </view>
+    </view>
+    </view>
+    <view wx:if="{{!loading&&list.length>0}}" class="bottom-line">我是有底线的~</view>
+    <loading hidden="{{!loading}}">
+        加载中...
+    </loading>
+</view>

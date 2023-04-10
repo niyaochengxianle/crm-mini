@@ -71,6 +71,12 @@
           "pathName": "pages/custom/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/custom/list",
+          "pathName": "pages/custom/list",
+          "query": "",
+          "scene": null
         }
       ]
     }

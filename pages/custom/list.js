@@ -5,7 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list: [
+      {
+        name:'叶灵泷',
+        code:'code',
+        text:'text'
+      },
+      {
+        name:'叶灵泷',
+        code:'code',
+        text:'text'
+      },
+      {
+        name:'叶灵泷',
+        code:'code',
+        text:'text'
+      }
+    ],
+    page: {current: 1, size: 100, total: 0,keyword:''},
+    loading: false
   },
 
   /**
