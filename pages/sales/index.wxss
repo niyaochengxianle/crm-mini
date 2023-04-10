@@ -1,0 +1,16 @@
+/* pages/sales/index.wxss */
+.sales-img{
+  width:400rpx;
+  height:350rpx;
+  margin:200rpx auto 40rpx;
+}
+.sales-t{
+  text-align: center;
+  font-size:28rpx;
+}
+.content-btn{
+  width:210rpx;
+  height:80rpx;
+  font-size:32rpx;
+  margin:80rpx auto;
+}

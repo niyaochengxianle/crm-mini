@@ -1,1 +1,39 @@
 /* pages/admin/invite.wxss */
+page{
+  background-color: #fff;
+}
+/* 顶部128rpx */
+.invite-t{
+  text-align: center;
+  color:#004ce5;
+  font-size:44rpx;
+  margin-top:160rpx;
+}
+.invite-c{
+  width:590rpx;
+  height:700rpx;
+  box-shadow: 0rpx 0rpx 50rpx 0rpx rgba(0,31,102,0.1);
+  border-radius: 20rpx;
+  margin:70rpx auto 20rpx;
+  padding:40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.invite-img{
+  width:390rpx;
+  height:390rpx;
+  margin-top:40rpx;
+  border:1px solid #666;
+}
+.invite-n{
+  text-align: center;
+  margin-top:55rpx;
+  color:#333333;
+  font-size:32rpx;
+}
+.invite-d{
+  color:#666666;
+  font-size:24rpx;
+  margin-top:30rpx;
+}

@@ -5,7 +5,10 @@
     "pages/login/input",
     "pages/admin/index",
     "pages/admin/detail",
-    "pages/admin/invite"
+    "pages/admin/invite",
+    "pages/sales/index",
+    "pages/sales/reg",
+    "pages/sales/view"
   ],
   "window":{
     "backgroundTextStyle":"light",

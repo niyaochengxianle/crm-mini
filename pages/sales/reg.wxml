@@ -1,0 +1,30 @@
+<!--pages/sales/reg.wxml 注册业务员-->
+<view class="sales-img">
+  <image src="/image/s.png" style="width:100%;height:100%;"  fit="contain"></image>
+</view>
+<view class="sales-s">
+  <text>扫码成功</text>
+</view>
+<view class="sales-d">
+  <text>请填写相关信息注册成都市武侯区直营当地(渠道名称)渠道业务员</text>
+</view>
+<view class="sales-c">
+  <view class="sales-c-t">
+    <text>
+      成都市武侯区直营当地(渠道名称）
+    </text>
+  </view>
+  <view class="info-top">
+        <view class="input-l">
+          <text>姓名*</text>
+        </view>
+        <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{salesInfo.name}}"  label="请输入姓名"  placeholder="" />
+        <view class="input-l">
+          <text>手机号*</text>
+        </view>
+        <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{salesInfo.phone}}"  label="请输入手机号"  placeholder="" />
+    </view>
+    <view class="content-btn">
+      <van-button color="#004ce5" block bind:tap="save">提 交</van-button>
+    </view>
+</view>

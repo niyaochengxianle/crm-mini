@@ -1,2 +1,14 @@
 <!--pages/admin/invite.wxml 邀请业务员-->
-<text>pages/admin/invite.wxml</text>
+<view class="invite-t">
+  <text>渠道编码：</text>
+  <text>NO1223947477</text>
+</view>
+<view class="invite-c">
+  <view class="invite-img"></view>
+  <view class="invite-n">
+    成都市武侯区直营当地(渠道名称
+  </view>
+  <view class="invite-d">
+    扫一扫二维码，邀请业务员i
+  </view>
+</view>

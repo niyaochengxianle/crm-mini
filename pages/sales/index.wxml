@@ -1,0 +1,12 @@
+<!--pages/sales/index.wxml 业务员-扫码-->
+<view class="sales-img">
+  <image src="/image/space.png" style="width:100%;height:100%;"></image>
+</view>
+<view class="sales-t">
+  <text>
+    当前用户还不是渠道业务员，请扫码注册
+  </text>
+</view>
+<view class="content-btn">
+  <van-button color="#004ce5" block bind:tap="tapScan">扫码注册</van-button>
+</view>

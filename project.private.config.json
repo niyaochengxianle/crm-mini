@@ -41,6 +41,24 @@
           "pathName": "pages/admin/detail",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/admin/invite",
+          "pathName": "pages/admin/invite",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/slaes/index",
+          "pathName": "pages/sales/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/sales/reg",
+          "pathName": "pages/sales/reg",
+          "query": "",
+          "scene": null
         }
       ]
     }
