@@ -8,7 +8,9 @@
     "pages/admin/invite",
     "pages/sales/index",
     "pages/sales/reg",
-    "pages/sales/view"
+    "pages/sales/view",
+    "pages/custom/index",
+    "pages/custom/list"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -41,6 +43,9 @@
     "van-checkbox": "@vant/weapp/checkbox/index",
     "van-dialog": "@vant/weapp/dialog/index",
     "van-tabbar": "@vant/weapp/tabbar/index",
-    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-area": "@vant/weapp/area/index"
   }
 }

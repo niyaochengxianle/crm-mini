@@ -65,6 +65,12 @@
           "pathName": "pages/sales/view",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/custom/index",
+          "pathName": "pages/custom/index",
+          "query": "",
+          "scene": null
         }
       ]
     }
