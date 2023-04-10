@@ -77,6 +77,12 @@
           "pathName": "pages/custom/list",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/custom/sales",
+          "pathName": "pages/custom/sales",
+          "query": "",
+          "scene": null
         }
       ]
     }

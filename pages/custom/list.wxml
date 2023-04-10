@@ -16,8 +16,11 @@
             </view>
             <view class="list-y">
                 <!-- <text> 已回访</text> -->
-                <view class="type-tag">
-                  已回访
+                <!-- <view class="type-tag" bindtap="Tel" data-tel="15008168545">
+                  未回访
+                </view> -->
+                <view class="type-tag" bindtap="toPlan">
+                    未分配
                 </view>
             </view>
         </view>

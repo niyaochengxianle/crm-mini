@@ -1,0 +1,27 @@
+/* pages/custom/sales.wxss */
+page {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sale-page{
+  width:100%;
+  padding: 30rpx 0;
+  flex:1;
+  overflow: auto;
+}
+
+.van-search__content{
+  box-shadow: 0rpx 0rpx 20rpx 0rpx rgba(0,31,102,0.06);
+  border-radius: 10rpx;
+}
+/* .container-btn{
+  margin-top:20rpx;
+} */
+.container-btn .van-button{
+  height:80rpx;
+  width:230rpx;
+  margin:25rpx;
+  font-size:32rpx;
+}

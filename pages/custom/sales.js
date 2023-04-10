@@ -1,46 +1,44 @@
-// pages/custom/list.js
+// pages/custom/sales.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    radio:1,
     list: [
       {
         name:'叶灵泷',
-        code:'code',
+        code:'2',
+        phone:13222445566,
         text:'text'
       },
       {
         name:'叶灵泷',
-        code:'code',
+        code:'1',
+        phone:'13222445567',
         text:'text'
       },
-      {
-        name:'叶灵泷',
-        code:'code',
-        text:'text'
-      }
-    ],
-    page: {current: 1, size: 100, total: 0,keyword:''},
-    loading: false
+      
+    ]
   },
-  // 拨打电话
-  Tel: function (e) {
-  	var tel = e.currentTarget.dataset.tel;
-    wx.makePhoneCall({
-      phoneNumber: tel,
-      success: function () {
-        console.log("拨号成功！")
-      },
-      fail: function () {
-        console.log("拨号失败！")
-      }
-    })
+  onChange(event) {
+    console.log(event)
+    this.setData({
+      radio: event.detail,
+    });
   },
-  toPlan(){
-    wx.navigateTo({url: '/pages/custom/sales'})
+
+  onClick(event) {
+    const { name } = event.currentTarget.dataset;
+    this.setData({
+      radio: name,
+    });
   },
+  toBack(){
+    wx.navigateTo({url: '/pages/custom/list'})
+  },
+  confirmSale(){},
   /**
    * 生命周期函数--监听页面加载
    */

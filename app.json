@@ -10,7 +10,9 @@
     "pages/sales/reg",
     "pages/sales/view",
     "pages/custom/index",
-    "pages/custom/list"
+    "pages/custom/list",
+    "pages/custom/sales",
+    "pages/custom/detail"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -46,6 +48,8 @@
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-area": "@vant/weapp/area/index"
+    "van-area": "@vant/weapp/area/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index"
   }
 }
