@@ -1,0 +1,19 @@
+/* pages/custom/index.wxss */
+page{
+  background: #F9F9F9;
+}
+.info-t{
+  font-size: 32rpx;
+  color: #333333;
+}
+.container-t{
+  min-height:100rpx;
+  padding:40rpx 30rpx;
+  background-color:#fff;
+}
+.info-p{
+  font-size:28rpx;
+  color: #666666;
+  line-height: 28rpx;
+  padding-top:20rpx;
+}

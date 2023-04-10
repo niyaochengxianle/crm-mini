@@ -1,0 +1,17 @@
+<!--pages/custom/index.wxml 客户基本信息 扫码后填写-->
+<view class="container-t">
+  <view class="info-t">
+    <text>成都市武侯区直营当地 </text>
+  </view>
+  <view class="info-p">
+    <text>负责人</text>
+  </view>
+</view>
+<view class="info-m">
+        <view class="info-t">
+        填写信息
+        </view>
+</view>
+
+
+

@@ -14,10 +14,13 @@ page {
     padding-top:40rpx;
 }
 .info-t{
-    font-size:36rpx;
-    color:#333333;
-    line-height:34rpx;
-    border-left:10rpx solid #004ce5;
+  font-size:36rpx;
+  padding-left:15rpx;
+  color:#333333;
+  line-height:36rpx;
+  border-left:10rpx solid #004ce5;
+  margin-bottom:20rpx;
+  margin-left:30rpx;
 }
 .van-field_r{
     color:#333 !important;
