@@ -1,0 +1,9 @@
+/* pages/index/card.wxss */
+.card_container{
+  text-align: center;
+  padding-top:80pt;
+}
+.card_text{
+  padding-top:15pt;
+  text-align: center;
+}

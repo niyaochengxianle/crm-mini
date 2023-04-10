@@ -1,0 +1,84 @@
+<view class="index-box">
+    <view class="info-top">
+        <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{channelInfo.name}}" input-align="right" label="渠道名"  placeholder="" />
+        <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{channelInfo.code}}" input-align="right" label="渠道编码"  placeholder="" />
+    </view>
+    <view class="info-m">
+        <view class="info-t">
+        填写信息
+        </view>
+        <van-field label-class="van-field_r" 
+        size="large"
+        input-class="van-field_r" 
+        model:value="{{channelInfo.userName}}" 
+        input-align="right" label="管理员姓名"  placeholder="请输入" />
+        <van-field label-class="van-field_r" 
+        size="large"
+        input-class="van-field_r" 
+        model:value="{{channelInfo.phone}}" 
+        input-align="right" label="联系方式"  placeholder="请输入" />
+        <van-field label-class="van-field_r" 
+        size="large"
+        input-class="van-field_r" 
+        model:value="{{channelInfo.password}}" 
+        input-align="right" label="初始密码"  placeholder="请输入" />
+    </view>
+    <view class="info-btn">
+        <!-- <view class="sub-btn">
+            <van-button color="#004ce5" size="large" block  bind:click="login"> 提 交 </van-button>
+        </view> -->
+        <view class="sub-btn">
+            <van-button color="#004ce5" size="large" block  bind:click="login"> 生成二维码 </van-button>
+        </view>
+    </view>
+    <view class="info-menu">
+        <view class="info-t">
+        快捷入口
+        </view>
+        <van-grid clickable gutter="{{ 15 }}" boder="{{false}}" direction="horizontal" column-num="2">
+            <van-grid-item
+              bind:click="toPath"
+              custom-class="box-style"
+              content-class="content-style"
+              data-url="{{item.path}}"
+              use-slot
+              wx:for="{{menuList}}" wx:key="index" >
+              <view class="content-style">
+                <image
+                    slot="icon"
+                    src="{{ item.icon }}"
+                    mode="aspectFit"
+                    class="icon-style"
+                    />
+                <text slot="text" class="text-style">
+                    {{item.text}}
+                </text>
+              </view>
+            </van-grid-item>
+        </van-grid>
+    </view>
+</view>
+<!-- 底部导航 -->
+<van-tabbar 
+  active="{{ active }}" 
+  bind:change="onChange"
+  inactive-color="#999999"
+  placeholder="{{true}}"
+  active-color="#004ce5"
+>
+  <van-tabbar-item class="custom-tab-bar-wrapper" custom-class="custom-tabbar-item" wx:for="{{tabList}}" wx:key="index">
+    <image
+      slot="icon"
+      src="{{ item.iconPath }}"
+      mode="aspectFit"
+      class="imageIcon"
+    />
+    <image
+      slot="icon-active"
+      src="{{ item.selectedIconPath }}"
+      mode="aspectFit"
+      class="imageIcon"
+    />
+   {{ item.text }}
+  </van-tabbar-item>
+</van-tabbar>

@@ -1,0 +1,36 @@
+<!--pages/admin/detail.wxml 业务员详情-->
+<view class="margin-t"></view>
+<view class="container-page">
+  <view class="info-t">
+    业务员详情信息
+  </view>
+  <view class="line-c">
+    <view class="l-circle"></view>
+    <text class="line-t">姓名:</text>
+    <text class="line-v"></text>
+  </view>
+  <!-- copy -->
+  <view class="line-c">
+    <view class="l-circle"></view>
+    <text class="line-t">编号:</text>
+    <text class="line-v"></text>
+  </view>
+  <view class="line-c">
+    <view class="l-circle"></view>
+    <text class="line-t">电话号码:</text>
+    <text class="line-v"></text>
+  </view>
+  <view class="line-c">
+    <view class="l-circle"></view>
+    <text class="line-t">省-市:</text>
+    <text class="line-v"></text>
+  </view>
+  <view class="line-c">
+    <view class="l-circle"></view>
+    <text class="line-t">渠道名:</text>
+    <text class="line-v"></text>
+  </view>
+  <view class="content-btn">
+      <van-button color="#004ce5" block bind:tap="toOffline"> 下线该业务员 </van-button>
+  </view>
+</view>

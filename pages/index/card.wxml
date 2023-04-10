@@ -1,0 +1,17 @@
+<!--pages/index/card.wxml-->
+<view class="card_container">
+<image 
+style="width:120pt;height:120pt;" 
+src="/image/card.jpg"
+show-menu-by-longpress
+></image>
+</view>
+<view class="card_text">
+<text>获取信息失败、前往领取校园卡</text>
+</view>
+<view class="card_text">
+<text>1、长按二维码保存图片</text>
+</view>
+<view class="card_text">
+  <text>2、打开微信扫一扫扫码</text>
+</view>

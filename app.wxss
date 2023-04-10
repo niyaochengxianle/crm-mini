@@ -1,0 +1,25 @@
+/**app.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+  Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
+  sans-serif;
+}
+
+.kt-flex-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.kt-flex-1 {
+  flex: 1;
+  overflow: auto;
+}
+
+.kt-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

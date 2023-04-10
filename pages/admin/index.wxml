@@ -1,0 +1,36 @@
+<!--pages/admin/index.wxml-->
+<!-- 渠道管理员 业务员列表 -->
+<view class="task-box">
+    <van-search
+        value="{{ page.keyword }}"
+        left-icon="/image/admin/search.png"
+        background="#f9f9f9"
+        placeholder="请输入搜索关键词"
+        />
+    <view class="list-c">
+        <view class="list-m">
+            <image class="list-i" src="/image/admin/list_icon.png">
+            </image>
+            <text class="list-t">业务员列表</text>
+        </view>
+        <view  bind:tap="toDetail" data-task="{{item}}"
+          class="apply-item" wx:for="{{list}}" wx:key="index"  open-type="navigateTo">
+        <view class="box-right">
+            <view class="box-right-item1">
+                <view class="title">{{ item.name }}</view>
+                <span class="list-y"> {{item.code}}</span>
+            </view>
+            <view class="list-b">
+                已分配10人
+            </view>
+            <view>
+                <van-button class="btn-d" color="#004ce5"  bind:click="login"> 查看详情 </van-button>
+            </view>
+        </view>
+    </view>
+    </view>
+    <view wx:if="{{!loading&&list.length>0}}" class="bottom-line">我是有底线的~</view>
+    <loading hidden="{{!loading}}">
+        加载中...
+    </loading>
+</view>

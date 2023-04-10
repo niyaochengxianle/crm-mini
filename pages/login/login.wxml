@@ -1,0 +1,13 @@
+<view class="content flex-column-center">
+    <view class="content-logo flex-column-center">
+        <image src="/image/logo.png" class="logo_img"/>
+        <text class="logo-text">南充文化旅游职业学院</text>
+    </view>
+    <view class="content-button flex-column-center">
+        <van-button class="button1" icon="wechat" color="#004ce5" open-type="getPhoneNumber"  block 
+        bind:getphonenumber="baseLogin">微信快捷授权登录</van-button>
+<!--        toDo 暂时隐藏掉账号密码登录 -->
+       <van-button class="button2"  type="default" block bind:tap="toInput">输入账号密码登录</van-button>
+    </view>
+    <loading hidden="{{!loading}}"></loading>
+</view>

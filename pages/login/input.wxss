@@ -1,0 +1,58 @@
+page {
+    background: #fff;
+    height: 100%;
+    overflow:auto;
+}
+.content{
+    background: linear-gradient(to bottom, #004ce5 392rpx, #fff 392rpx);
+}
+.bg-content{
+    height:342rpx;
+}
+/* 128 222 350 rpx 342rpx */
+.input-conatiner{
+    width: 650rpx;
+    height: 640rpx;
+    margin-left:50rpx;
+    margin-top:-120rpx;
+    box-shadow: 0 0 50rpx 0 rgba(0,31,102,0.1);
+    border-radius:20rpx;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content-input{
+    width:100%;
+}
+.content-btn {
+    width: 350rpx;
+    margin-top: 100rpx;
+}
+.login-btn{
+    width:350rpx;
+    height:80rpx;
+}
+.field-h{
+    margin-top:94rpx;
+}
+.van-field_r{
+    color:#333 !important;
+}
+.login-e{
+    margin-top:120rpx;
+    display: flex;
+    flex-direction: row;
+    font-size:28rpx;
+    color:#004ce5;
+    text-decoration: underline;
+    align-items: center;
+    justify-content: center;
+}
+.line-m{
+    background-color: #004ce5;
+    width:2rpx;
+    height:20rpx;
+    margin:0 50rpx;
+}

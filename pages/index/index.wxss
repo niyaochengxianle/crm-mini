@@ -1,0 +1,91 @@
+page {
+    background-color: #f9f9f9;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.info-top{
+    margin-top:20rpx;
+}
+.info-m{
+    margin-top:20rpx;
+    background-color: #fff;
+    padding-top:40rpx;
+}
+.info-t{
+    font-size:36rpx;
+    color:#333333;
+    line-height:34rpx;
+    border-left:10rpx solid #004ce5;
+}
+.van-field_r{
+    color:#333 !important;
+    font-size:28rpx !important;
+}
+.info-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:180rpx;
+
+}
+.sub-btn{
+    width:350rpx;
+    height:90rpx;
+    font-size:36rpx !important;
+    letter-spacing: 6rpx;
+}
+.info-menu{
+  height: auto;
+  background-color: #fff;
+  padding:40rpx 0;
+}
+.text-style{
+  color:#333 !important;
+  font-size:32rpx !important;
+  letter-spacing: 1;
+  margin-left:32rpx !important;
+  line-height: 30rpx;
+  flex:1;
+}
+.icon-style{
+  width:80rpx;
+  height:80rpx;
+  margin-left:15rpx;
+}
+.box-style{
+ box-shadow: 0rpx 0rpx 10rpx 0rpx rgba(0,31,102,0.08);
+ border-radius: 10rpx !important;
+ border:none !important;
+ overflow: hidden;
+}
+.content-style{
+  width:100%;
+  display: flex ;
+  flex-direction: row ;
+  border:none !important;
+}
+/* //底部 */
+.custom-tab-bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .custom-tab-bar-wrapper .text {
+    font-size: 24rpx;
+  }
+  
+  .custom-tab-bar-wrapper .tab-icon {
+    width: 40rpx;
+    height: 40rpx;
+  }
+  
+  .custom-tabbar-item {
+    width: 100% !important;
+  }
+  .imageIcon{
+    width: 50rpx; height: 50rpx;
+  }

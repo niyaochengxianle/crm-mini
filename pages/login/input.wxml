@@ -1,0 +1,27 @@
+<view class="content">
+    <view class="bg-content"></view>
+    <view class="input-conatiner">
+        <view class="content-input"> 
+            <!-- <van-cell-group> -->
+            <view class="field-h"></view>
+                <van-field label-class="van-field_r" size="large" model:value="{{userName}}" label="账号"    placeholder="请输入账号" />
+                <view class="field-h"></view>
+                <van-field label-class="van-field_r" size="large" model:value="{{passWord}}" label="密码"  placeholder="请输入密码" />
+            <!-- </van-cell-group> -->
+        </view>
+        <view class="content-btn">
+            <van-button color="#004ce5" block bind:tap="login">登录</van-button>
+        </view>
+    </view>
+    <view class="login-e">
+        <view class="click-t">
+            <text>游客登录</text>
+        </view>
+        <view class="line-m"></view>
+        <view class="click-t">
+            <text>业务员登录</text>
+        </view>
+    </view>
+    <loading hidden="{{!loading}}">登录中...</loading>
+</view>
+
