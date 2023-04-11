@@ -46,7 +46,7 @@ Page({
                     const personId = resp.data.personId;
                     const type = resp.data.type;
                     const person = resp.data.person;
-                    that.globalData.userInfo=person
+                    app.globalData.userInfo=person
                     wx.setStorageSync('person', person);
                     wx.setStorageSync('personId', personId);
                     wx.setStorageSync('type',type );
@@ -55,11 +55,11 @@ Page({
                         icon: 'success',
                         duration: 2000
                     })
-                    wx.navigateTo({url: '/pages/index/index'})
+                    wx.redirectTo({url: '/pages/index/index'})
                 }else{
-                    console.log(resp)
+                    console.log(resp.data)
                     wx.showToast({
-                        title: resp,
+                        title: resp.data,
                         icon: 'fail',
                         duration: 2000
                     })
@@ -107,7 +107,7 @@ Page({
                         icon: 'success',
                         duration: 2000
                     })
-                    wx.navigateTo({url: '/pages/index/index'})
+                    wx.redirectTo({url: '/pages/index/index'})
                 }else{
                     wx.showToast({
                         title: resp.data,
@@ -158,7 +158,7 @@ Page({
                         icon: 'success',
                         duration: 2000
                     })
-                    wx.navigateTo({url: '/pages/index/index'})
+                    wx.redirectTo({url: '/pages/index/index'})
                 }else{
                     wx.showToast({
                         title: resp.data,

@@ -72,6 +72,13 @@ Page({
     onLoad() {
         let that = this
         let userInfo = wx.getStorageSync('person')
+        let personId=wx.getStorageSync("personId")
+        if(!personId){
+            wx.navigateTo({
+              url: '/pages/login/input',
+            })
+            return 
+        }
         this.setData({
             channelInfo: userInfo
         })

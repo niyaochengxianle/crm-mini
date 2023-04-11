@@ -2,7 +2,7 @@
 <!-- 渠道管理员 业务员列表 -->
 <view class="task-box">
     <van-search
-        value="{{ page.keyword }}"
+        value="{{ page.keyWord }}"
         left-icon="/image/admin/search.png"
         background="#f9f9f9"
         placeholder="请输入搜索关键词"
@@ -21,7 +21,7 @@
                 <span class="list-y"> {{item.code}}</span>
             </view>
             <view class="list-b">
-                已分配10人
+                已分配<text>{{item.ditributeNumber}}</text>人
             </view>
             <view>
                 <van-button class="btn-d" color="#004ce5"  data-task="{{item}}" bind:click="toDEtail"> 查看详情 </van-button>

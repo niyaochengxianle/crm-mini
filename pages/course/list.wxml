@@ -1,2 +1,5 @@
-<!--pages/course/list.wxml-->
-<text>pages/course/list.wxml课程list</text>
+<!--pages/course/list.wxml 课程list 管理员-->
+<van-tabs active="a">
+  <van-tab title="标签 1" name="a">按地区排序 1</van-tab>
+  <van-tab title="标签 2" name="b">按时间排序</van-tab>
+</van-tabs>
