@@ -86,8 +86,7 @@ Page({
     toInvite(){
         let personId=wx.getStorageSync("personId")
         let type=wx.getStorageSync("type")
-        let url='/pages/admin/invite?id='+ personId +'&type='+type
-        console.log(personId,type,url)
+        let url='/pages/admin/invite?id='+ personId +'&type='+type+'&code='+this.data.channelInfo.channelId+'&name='+this.data.channelInfo.channelName
         wx.navigateTo({url:url})
 
     },

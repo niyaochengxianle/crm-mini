@@ -4,57 +4,66 @@
   <van-field label-class="van-field_r" 
         size="large"
         input-class="van-field_r" 
-        model:value="{{channelInfo.userName}}" 
+        required
+        bind:input='setVal'
+        model:value="{{form.name}}" 
         input-align="right" label="课程名称"  placeholder="请输入" />
     <van-field label-class="van-field_r" 
+    required
     size="large"
     input-class="van-field_r" 
-    model:value="{{channelInfo.phone}}" 
-    input-align="right" label="开课时间" readonly bind:tap="selectTime1"  placeholder="请选择" >
+    model:value="{{form.beginDate}}" 
+    input-align="right" label="开课日期" readonly bind:tap="selectTime1"  placeholder="请选择" >
           <view slot="button" bind:tap="selectTime1" class="slot-button">
                 <van-icon name="arrow"/>
             </view>
     </van-field>
     <van-field label-class="van-field_r" 
     size="large"
+    required
     input-class="van-field_r" 
     readonly bind:tap="selectTime2"
-    model:value="{{channelInfo.phone}}" 
-    input-align="right" label="结束时间"  placeholder="请输入" >
+    model:value="{{form.endDate}}" 
+    input-align="right" label="结束日期"  placeholder="请输入" >
       <view slot="button" bind:tap="selectTime2" class="slot-button">
         <van-icon name="arrow"/>
       </view>
     </van-field>
     <van-field label-class="van-field_r" 
     size="large"
+    required
+    bind:input='setVal1'
     input-class="van-field_r" 
-    model:value="{{channelInfo.phone}}" 
+    model:value="{{form.dutyPerson}}" 
     input-align="right" label="课程负责人"  placeholder="请输入" />
     <van-field label-class="van-field_r" 
     size="large"
+    required
     input-class="van-field_r" 
-    model:value="{{channelInfo.phone}}" 
+    bind:input='setVal2'
+    model:value="{{form.signPerson}}" 
     input-align="right" label="签到负责人"  placeholder="请输入" />
     <van-field label-class="van-field_r" 
     size="large"
+    required
     input-class="van-field_r" 
     type="textarea"
     maxlength="200"
-    model:value="{{channelInfo.phone}}" 
+    bind:input='setVal3'
+    model:value="{{form.description}}" 
     autosize
     label="课程简介"  placeholder="请输入" />
 </view>
 <view class="content-btn">
-  <van-button color="#004ce5" block bind:tap="tapScan">提  交 课 程</van-button>
+  <van-button color="#004ce5" loading="{{loading}}" block bind:tap="subCourse">提  交 课 程</van-button>
 </view>
 <van-popup show="{{timeVisible1}}" round custom-style="height:auto" position="bottom"  bind:close="closeTime1">
     <van-datetime-picker
             value="{{currentDate}}"
-            type="datetime"
+            type="date"
             title="开始时间"
             min-date="{{minDate}}"
             max-date="{{maxDate}}"
-            filter="{{filter}}"
             bind:confirm="confirmTime1"
             bind:cancel="clearTime1"
     />
@@ -62,11 +71,10 @@
   <van-popup show="{{timeVisible2}}" round custom-style="height:auto" position="bottom" bind:close="closeTime2">
       <van-datetime-picker
               value="{{currentDate}}"
-              type="datetime"
+              type="date"
               title="结束时间"
               min-date="{{minDate}}"
               max-date="{{endMaxDate}}"
-              filter="{{filter}}"
               bind:confirm="confirmTime2"
               bind:cancel="clearTime2"
       />

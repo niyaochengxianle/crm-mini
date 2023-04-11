@@ -5,25 +5,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    imgSrc:'',
+    channelCode:'',
+    channelName:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id,options.type)
+    this.setData({
+      channelCode:options.code
+    })
+    this.setData({
+      channelName:options.name
+    })
     this.getScanCode(options.id,options.type)
   },
   getScanCode(id,type){
     let url=wx.env.baseUrl+'/wechat/getQrCode/'+id+'/'+type
+    let that = this
       wx.request({
         url: url,
         method:'get',
         success(e){
-          console.log(e)
+          let res = e.data
+          if(res.code==='200'){
+            that.setData({
+              imgSrc:wx.env.groupUrl+res.data
+            })
+          }
         },fail(e){
-
+          wx.showToast({
+              title: '获取二维码失败',
+              icon: 'none',
+              duration: 2000
+          })
         },complete(e){
 
         }

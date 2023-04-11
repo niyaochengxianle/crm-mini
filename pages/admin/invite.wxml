@@ -1,12 +1,14 @@
 <!--pages/admin/invite.wxml 邀请业务员-->
 <view class="invite-t">
   <text>渠道编码：</text>
-  <text>NO1223947477</text>
+  <text>{{channelCode}}</text>
 </view>
 <view class="invite-c">
-  <view class="invite-img"></view>
+  <view class="invite-img">
+    <image src="{{imgSrc}}" style="width:100%;height:100%"></image>
+  </view>
   <view class="invite-n">
-    成都市武侯区直营当地(渠道名称
+   {{channelName}}
   </view>
   <view class="invite-d">
     扫一扫二维码，邀请业务员i

@@ -1,4 +1,5 @@
 // pages/course/index.js
+const weCropper = require('../../components/cropper/we-cropper.js')
 const moment = require('../../utils/moment.js')
 moment.locale('en', {
   longDateFormat: {
@@ -12,19 +13,114 @@ Page({
    * 页面的初始数据
    */
   data: {
-    form:{},
+    loading:false,
+    name:'',
+    form:{
+        name:'',
+        beginDate:'',
+        endDate:'',
+        dutyPerson:'',
+        description:'',
+        signPerson:'',
+    },
     timeVisible1: false,
     timeVisible2: false,
     currentDate: new Date(moment().format('YYYY-MM-DD HH:mm')).getTime(),
     minDate: new Date(moment().format('YYYY-MM-DD')).getTime(),
     maxDate: moment().add(100, 'day')._d.getTime(),
     endMaxDate: moment().add(100, 'day')._d.getTime(),
-    filter(type, options) {
-        if (type === 'minute') {
-            return options.filter((option) => option % 30 === 0);
-        }
-        return options;
+  },
+  setVal(e){
+      this.setData({
+          ['form.name']:e.detail
+      })
+  },
+setVal1(e){
+    this.setData({
+        ['form.dutyPerson']:e.detail
+    })
+},
+    setVal2(e){
+        this.setData({
+            ['form.signPerson']:e.detail
+        })
     },
+    setVal3(e){
+        this.setData({
+            ['form.description']:e.detail
+        })
+    },
+  //提交课程
+  subCourse(){
+    if(!this.data.form.name){
+        wx.showToast({
+        title: '请输入课程名称',
+        icon:'none'
+        })
+        return false
+    }
+    if(!this.data.form.beginDate){
+        wx.showToast({
+          title: '请选择开课日期',
+          icon:'none'
+        })
+        return false
+    }
+    if(!this.data.form.endDate){
+        wx.showToast({
+          title: '请选择结束日期',
+          icon:'none'
+        })
+        return false
+    }
+    if(!this.data.form.dutyPerson){
+        wx.showToast({
+          title: '请输入课程负责人',
+          icon:'none'
+        })
+        return false
+    }
+    if(!this.data.form.signPerson){
+        wx.showToast({
+          title: '请输入签到负责人',
+          icon:'none'
+        })
+        return false
+    }
+    if(!this.data.form.description){
+        wx.showToast({
+          title: '请输入课程简介',
+          icon:'none'
+        })
+        return false
+    }
+      this.setData({
+          loading:true
+      })
+      let that = this
+      wx.request({
+        url:wx.env.baseUrl+ '/lesson',
+        method:'post',
+        data:this.data.form,
+        success(e){
+            let res = e.data
+            if(res.code==='200'){
+                wx.navigateTo({
+                  url: '/pages/course/list',
+                })
+            }
+        },fail(e){
+            console.log(e)
+            wx.showToast({
+              title: '提交课程失败，请稍后再试',
+              icon:'none'
+            })
+        },complete(e){
+            that.setData({
+                loading:false
+            })
+        }
+      })
   },
   selectTime1(val) {
     this.setData({
@@ -39,33 +135,33 @@ Page({
   // 确认时间
   confirmTime1(val) {
       this.setData({
-          'form.leaveStartTime': moment(val.detail).format('YYYY-MM-DD HH:mm:ss'),
+          'form.beginDate': moment(val.detail).format('YYYY-MM-DD'),
           timeVisible1: false
       })
       this.timeVisible1 = false
-      if (this.data.form.leaveStartTime && this.data.form.leaveEndTime) {
-          this.testTime(this.data.form.leaveStartTime, this.data.form.leaveEndTime)
+      if (this.data.form.beginDate && this.data.form.endDate) {
+        //   this.testTime(this.data.form.beginDate, this.data.form.endDate)
       }
   },
   // 确认时间
   confirmTime2(val) {
       this.setData({
-          'form.leaveEndTime': moment(val.detail).format('YYYY-MM-DD HH:mm:ss'),
+          'form.endDate': moment(val.detail).format('YYYY-MM-DD'),
           timeVisible2: false
       })
-      if (this.data.form.leaveStartTime && this.data.form.leaveEndTime) {
-          this.testTime(this.data.form.leaveStartTime, this.data.form.leaveEndTime)
-      }
+      if (this.data.form.beginDate && this.data.form.endDate) {
+            // this.testTime(this.data.form.beginDate, this.data.form.endDate)
+        }
   },
   clearTime1() {
       this.setData({
-          'form.leaveStartTime': '',
+          'form.beginDate': '',
           timeVisible1: false
       })
   },
   clearTime2() {
       this.setData({
-          'form.leaveEndTime': '',
+          'form.endDate': '',
           timeVisible2: false
       })
   },
