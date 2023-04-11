@@ -12,7 +12,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.id,options.type)
+    this.getScanCode(options.id,options.type)
+  },
+  getScanCode(id,type){
+    let url=wx.env.baseUrl+'/wechat/getQrCode/'+id+'/'+type
+      wx.request({
+        url: url,
+        method:'get',
+        success(e){
+          console.log(e)
+        },fail(e){
 
+        },complete(e){
+
+        }
+      })
   },
 
   /**

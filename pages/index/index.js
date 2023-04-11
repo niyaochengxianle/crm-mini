@@ -84,7 +84,12 @@ Page({
         })
     },
     toInvite(){
-        wx.navigateTo({url: '/pages/admin/invite'})
+        let personId=wx.getStorageSync("personId")
+        let type=wx.getStorageSync("type")
+        let url='/pages/admin/invite?id='+ personId +'&type='+type
+        console.log(personId,type,url)
+        wx.navigateTo({url:url})
+
     },
     toLogin() {
         wx.navigateTo({url: '/pages/login/input'})

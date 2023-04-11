@@ -1,5 +1,9 @@
 <!--pages/course/list.wxml 课程list 管理员-->
-<van-tabs active="a">
-  <van-tab title="标签 1" name="a">按地区排序 1</van-tab>
-  <van-tab title="标签 2" name="b">按时间排序</van-tab>
-</van-tabs>
+<view class="task-box">
+    <van-search
+        value="{{ page.keyWord }}"
+        left-icon="/image/admin/search.png"
+        background="#f9f9f9"
+        placeholder="请输入搜索关键词"
+        />
+</view>

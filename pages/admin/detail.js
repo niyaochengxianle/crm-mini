@@ -7,10 +7,38 @@ Page({
    */
   data: {
     info:{},
+    loading:false
   },
   // 下线业务员
   toOffline(){
-
+    this.setData({
+      loading:true
+    })
+    this.setData({
+      ['info.isEnable']:false
+    })
+    wx.request({
+      url: wx.env.baseUrl+'/channel/staff',
+      method:'post',
+      data:this.data.info,
+      success(e){
+        let res = e.data
+        if(res.code==='200'){
+          wx.showToast({
+            title: '下线业务员成功',
+              icon: 'none',
+              duration: 2000
+          })
+          wx.navigateTo({
+            url: '/pages/admin/list',
+          })
+        }
+      },fail(e){},complete(e){
+        this.setData({
+          loading:false
+        })
+      }
+    })
   },
   getInfo(id){
     var that = this
@@ -37,7 +65,6 @@ Page({
           duration: 2000
         })
       },complete(e){
-        console.log(e)
       }
     })
   },
@@ -53,7 +80,6 @@ Page({
       })
       return false
     }else{
-      console.log(1)
        this.getInfo(options.id)
     }
   },

@@ -1,1 +1,12 @@
 /* pages/course/list.wxss */
+page{
+  background-color: #f5f5f5;
+}
+view .van-search__content {
+  background: #fff;
+}
+.van-tab--active{
+  color:#004ce5 !important;
+  font-size:28rpx;
+  letter-spacing: 1px;
+}

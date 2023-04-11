@@ -31,6 +31,6 @@
     <text class="line-v">{{info.channelName}}</text>
   </view>
   <view class="content-btn">
-      <van-button color="#004ce5" block bind:tap="toOffline"> 下线该业务员 </van-button>
+      <van-button color="#004ce5" loading="{{loading}}" block bind:tap="toOffline"> 下线该业务员 </van-button>
   </view>
 </view>
