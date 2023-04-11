@@ -12,7 +12,10 @@
     "pages/custom/index",
     "pages/custom/list",
     "pages/custom/sales",
-    "pages/custom/detail"
+    "pages/custom/course",
+    "pages/custom/detail",
+    "pages/course/index",
+    "pages/course/list"
   ],
   "window":{
     "backgroundTextStyle":"light",

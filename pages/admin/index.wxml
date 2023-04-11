@@ -24,7 +24,7 @@
                 已分配10人
             </view>
             <view>
-                <van-button class="btn-d" color="#004ce5"  bind:click="login"> 查看详情 </van-button>
+                <van-button class="btn-d" color="#004ce5"  data-task="{{item}}" bind:click="toDEtail"> 查看详情 </van-button>
             </view>
         </view>
     </view>

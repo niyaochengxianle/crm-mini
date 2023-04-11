@@ -28,7 +28,7 @@
             <van-button color="#004ce5" size="large" block  bind:click="login"> 提 交 </van-button>
         </view> -->
         <view class="sub-btn">
-            <van-button color="#004ce5" size="large" block  bind:click="login"> 生成二维码 </van-button>
+            <van-button color="#004ce5" size="large" block  bind:click="toInvite"> 生成二维码 </van-button>
         </view>
     </view>
     <view class="info-menu">

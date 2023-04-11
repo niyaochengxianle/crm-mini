@@ -1,0 +1,21 @@
+/* pages/course/index.wxss */
+.info-m{
+  height:20rpx;
+  background-color:#f9f9f9 ;
+}
+.info-x{
+  background-color: #fff;
+}
+.van-field_r{
+  color:#333 !important;
+  font-size:28rpx !important;
+}
+.van-cell{
+  min-height:100rpx;
+}
+.content-btn{
+  width:350rpx;
+  height:90rpx;
+  font-size:32rpx;
+  margin:60rpx auto;
+}

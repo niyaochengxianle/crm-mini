@@ -78,11 +78,7 @@ Page({
     },
     toDetail(e) {
         let task = e.currentTarget.dataset.task
-        // if (task.taskStatus == 0) {
-        //     wx.showToast({title: '该选课任务暂未启动哦', icon: 'none'})
-        //     return
-        // }
-        wx.navigateTo({url: '/course/peSelect/index/index?id=' + task.id + '&status=' + task.taskStatus})
+        wx.navigateTo({url: '/pages/admin/detail?id=' + task.id})
 
     },
 });

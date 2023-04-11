@@ -46,6 +46,7 @@ Page({
                     const personId = resp.data.personId;
                     const type = resp.data.type;
                     const person = resp.data.person;
+                    that.globalData.userInfo=person
                     wx.setStorageSync('person', person);
                     wx.setStorageSync('personId', personId);
                     wx.setStorageSync('type',type );
@@ -97,6 +98,7 @@ Page({
                     const personId = resp.data.personId;
                     const type = resp.data.type;
                     const person = resp.data.person;
+                    that.globalData.userInfo=person
                     wx.setStorageSync('person', person);
                     wx.setStorageSync('personId', personId);
                     wx.setStorageSync('type',type );
@@ -150,6 +152,7 @@ Page({
                     wx.setStorageSync('person', person);
                     wx.setStorageSync('personId', personId);
                     wx.setStorageSync('type',type );
+                    that.globalData.userInfo=person
                     wx.showToast({
                         title: '登录成功',
                         icon: 'success',

@@ -12,41 +12,41 @@
     客户基本信息
   </view>
   <view>
-    <van-field label-class="van-field_r" 
+    <van-field label-class="van-field_r"
         size="large"
-        input-class="van-field_r" 
-        model:value="{{channelInfo.userName}}" 
+        input-class="van-field_r"
+        model:value="{{channelInfo.userName}}"
         input-align="right" label="姓名"  placeholder="请输入" />
-    <van-field label-class="van-field_r" 
+    <van-field label-class="van-field_r"
     size="large"
-    input-class="van-field_r" 
-    model:value="{{channelInfo.phone}}" 
+    input-class="van-field_r"
+    model:value="{{channelInfo.phone}}"
     input-align="right" label="联系方式"  placeholder="请输入" />
     <van-cell title="市区" is-link value="请选择" bind:click="showPopup" />
   </view>
 </view>
 <view class="info-x">
-  <van-field label-class="van-field_r" 
+  <van-field label-class="van-field_r"
         size="large"
-        input-class="van-field_r" 
-        model:value="{{channelInfo.userName}}" 
+        input-class="van-field_r"
+        model:value="{{channelInfo.userName}}"
         input-align="right" label="所属区域经理姓名"  placeholder="请输入" />
-    <van-field label-class="van-field_r" 
+    <van-field label-class="van-field_r"
     size="large"
-    input-class="van-field_r" 
-    model:value="{{channelInfo.phone}}" 
+    input-class="van-field_r"
+    model:value="{{channelInfo.phone}}"
     input-align="right" label="所属区域经理联系方式"  placeholder="请输入" />
 </view>
 <view class="info-x">
-  <van-field label-class="van-field_r" 
+  <van-field label-class="van-field_r"
         size="large"
-        input-class="van-field_r" 
-        model:value="{{channelInfo.userName}}" 
+        input-class="van-field_r"
+        model:value="{{channelInfo.userName}}"
         input-align="right" label="所属区域业务员姓名"  placeholder="请输入" />
-    <van-field label-class="van-field_r" 
+    <van-field label-class="van-field_r"
     size="large"
-    input-class="van-field_r" 
-    model:value="{{channelInfo.phone}}" 
+    input-class="van-field_r"
+    model:value="{{channelInfo.phone}}"
     input-align="right" label="所属区域业务员联系方式"  placeholder="请输入" />
 </view>
 <view class="info-x">
@@ -62,7 +62,7 @@
   custom-style="height: 60%">
   <van-picker columns="{{ columns }}" title="选择状态" bind:confirm="confirmPicker" bind:cancel="cancelPicker" />
 </van-popup>
-<!-- bind:confirm	
+<!-- bind:confirm
 bind:cancel -->
 <view class="content-btn">
   <van-button color="#004ce5" block bind:tap="tapScan">提  交</van-button>
