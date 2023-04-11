@@ -16,23 +16,16 @@ App({
         // that.getToken();
     },
     getToken() {
-        let storePath = wx.getStorageSync('path')
-        let indexPath = 'pages/login/login'
-        let loginPath = 'pages/login/login'
-        if (storePath && storePath !== indexPath) {
-            if (wx.env.token) {
-                wx.navigateTo({url: '/' + wx.getStorageSync('path')})
-            } else {
-                wx.navigateTo({url: '/' + loginPath})
-            }
-        }
-    },
-    jump(path) {
-        if (wx.env.token) {
-            wx.navigateTo({url: path})
-        } else {
-            wx.navigateTo({url: '/pages/login/login'})
-        }
+        // let storePath = wx.getStorageSync('path')
+        // let indexPath = 'pages/login/login'
+        // let loginPath = 'pages/login/login'
+        // if (storePath && storePath !== indexPath) {
+        //     if (wx.env.token) {
+        //         wx.navigateTo({url: '/' + wx.getStorageSync('path')})
+        //     } else {
+        //         wx.navigateTo({url: '/' + loginPath})
+        //     }
+        // }
     },
     /**
      * 封装request请求
@@ -62,34 +55,6 @@ App({
             complete(res) {
                 complete(res)
             }
-        })
-    },
-    // 获取用户信息 不登录则无权限
-    getUserInfo() {
-        const that = this;
-        that.wxRequest('GET', '/admin/user/info', null, e => {
-            const data = e.data.data
-            if (e.data.code === 0) {
-                that.globalData.userInfo = data.sysUser
-                wx.setStorageSync('user', data.sysUser)
-                setTimeout(() => {
-                    wx.redirectTo({url: '/pages/index/index'})
-                }, 1000);
-            } else {
-                const msg = e.data.msg
-                wx.showModal({
-                    cancelColor: "#999999",
-                    confirmColor: "#1ba784",
-                    title: msg ? msg : '获取用户信息失败，请联系管理员'
-                })
-            }
-        }, err => {
-            wx.showModal({
-                cancelColor: "#999999",
-                confirmColor: "#1ba784",
-                title: '获取用户信息失败，请稍后重试'
-            })
-        }, res => {
         })
     },
     globalData: {
