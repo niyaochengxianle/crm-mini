@@ -83,6 +83,12 @@
           "pathName": "pages/custom/detail",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/course/list",
+          "pathName": "pages/course/list",
+          "query": "",
+          "scene": null
         }
       ]
     }
