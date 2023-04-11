@@ -1,7 +1,7 @@
 <view class="index-box">
     <view class="info-top">
-        <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{channelInfo.name}}" input-align="right" label="渠道名"  placeholder="" />
-        <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{channelInfo.code}}" input-align="right" label="渠道编码"  placeholder="" />
+        <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{channelInfo.channelName}}" input-align="right" label="渠道名"  placeholder="" />
+        <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{channelInfo.channelId}}" input-align="right" label="渠道编码"  placeholder="" />
     </view>
     <view class="info-m">
         <view class="info-t">
@@ -10,7 +10,7 @@
         <van-field label-class="van-field_r" 
         size="large"
         input-class="van-field_r" 
-        model:value="{{channelInfo.userName}}" 
+        model:value="{{channelInfo.name}}" 
         input-align="right" label="管理员姓名"  placeholder="请输入" />
         <van-field label-class="van-field_r" 
         size="large"
@@ -66,7 +66,7 @@
   placeholder="{{true}}"
   active-color="#004ce5"
 >
-  <van-tabbar-item class="custom-tab-bar-wrapper" custom-class="custom-tabbar-item" wx:for="{{tabList}}" wx:key="index">
+  <van-tabbar-item class="custom-tab-bar-wrapper" data-url="{{item.pagePath}}"  bind:tap="toItem"  custom-class="custom-tabbar-item" wx:for="{{tabList}}" wx:key="index">
     <image
       slot="icon"
       src="{{ item.iconPath }}"

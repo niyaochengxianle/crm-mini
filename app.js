@@ -6,7 +6,7 @@ App({
         if (option.path) {
             wx.setStorageSync('path', option.path);
         }
-        wx.env.baseUrl = 'https://test.tech.kuairui.tech';
+        wx.env.baseUrl = 'http://47.108.58.40:22115';
         wx.env.appId = 'wx3950cca53460d310';//小程序appId
         // wx.env.appKey = '57C0D1EEA84340D7';//微校appKey
     

@@ -1,15 +1,6 @@
 const app = getApp()
 Page({
     data: {
-        menus: [
-            {
-                type: "应用",
-                items: [
-                    {title: "公共专业选课", logo: "/image/icon/course_select.png", path: "/course/pages/index/index"},
-                    {title: "体育选课", logo: "/image/icon/pe_select.png", path: "/course/peSelect/task/task"},
-                ]
-            },
-        ],
         channelInfo:{
             name:'渠道名',
             code:'No111134555',
@@ -19,25 +10,25 @@ Page({
         },
         tabList:[
             {
-                pagePath: "pages/home/index",
+                pagePath: "/pages/index/index",
                 text: "首页",
                 iconPath: "/image/icon/h_1.png",
                 selectedIconPath: "/image/icon/h.png",
             },
             {
-                pagePath: "pages/home/index",
+                pagePath: "/pages/custom/list",
                 text: "客户",
                 iconPath: "/image/icon/c_1.png",
                 selectedIconPath: "/image/icon/c.png"
             },
             {
-                pagePath: "pages/home/index",
+                pagePath: "/pages/course/index",
                 text: "课程",
                 iconPath:"/image/icon/cs_1.png",
                 selectedIconPath: "/image/icon/cs.png",
             },
             {
-                pagePath: "pages/home/index",
+                pagePath: "/pages/index/index",
                 text: "我的",
                 iconPath:"/image/icon/m_1.png",
                 selectedIconPath: "/image/icon/m.png",
@@ -45,27 +36,27 @@ Page({
         ],
         menuList:[
             {
-                path:'',
+                path:'/pages/course/index',
                 icon:'/image/icon/kcsm.png',
                 text:'课程扫码'
             },
             {
-                path:'',
+                path:'/pages/custon/index',
                 icon:'/image/icon/lr.png',
                 text:'录入'
             },
             {
-                path:'',
+                path:'/pages/salse/view',
                 icon:'/image/icon/yq.png',
                 text:'客户邀请'
             },
             {
-                path:'',
+                path:'/pages/custon/list',
                 icon:'/image/icon/cx.png',
                 text:'客户查询'
             },
             {
-                path:'',
+                path:'/pages/custon/list',
                 icon:'/image/icon/xx.png',
                 text:'客户信息'
             },
@@ -80,18 +71,10 @@ Page({
     },
     onLoad() {
         let that = this
-        let userInfo = app.globalData.userInfo
-        if (!userInfo) {
-            userInfo = {}
-            that.setData({
-                notLogin: true
-            })
-        } else {
-            userInfo.avatar = wx.env.baseUrl + userInfo.avatar
-            this.getInfo(userInfo.userCode)
-        }
+        let userInfo = wx.getStorageSync('person')
+        console.log(wx.getStorageSync('person'))
         this.setData({
-            userInfo: userInfo
+            channelInfo: userInfo
         })
     },
     // onShow() {
@@ -129,13 +112,16 @@ Page({
     // 点击菜单
     toItem(e) {
         let path = e.currentTarget.dataset.url
-        app.jump(path)
+        wx.navigateTo({
+          url: path,
+        })
     },
     onChange(event) {
         // event.detail 的值为当前选中项的索引
         this.setData({ active: event.detail });
     },
     toPath(e){
+        
         let path = e.currentTarget.dataset.url
         // app.jump(path)
         console.log(e);

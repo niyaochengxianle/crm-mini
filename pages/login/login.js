@@ -2,10 +2,12 @@ const app = getApp()
 Page({
     data: {
         loading: false,
+        code:'',
     },
     onLoad: function (options) {
         wx.login({
             success:(key)=>{
+                console.log(key)
               this.setData({
                   code:key.code,
               })
