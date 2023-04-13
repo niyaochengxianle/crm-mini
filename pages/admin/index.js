@@ -5,6 +5,19 @@ Page({
         page: {current: 1, size: 30, keyWord:'',masterId:null},
         loading: false
     },
+    setVal(e){
+        this.setData({
+            ['page.keyWord']:e.detail
+        })
+    },
+    onSearch(){
+        var that = this;
+        this.setData({
+          ['page.current']:1,
+          list:[],
+        })
+        that.init() 
+    },
     onLoad() {
         var that = this;
         that.init()
@@ -16,6 +29,7 @@ Page({
         var that = this;
         this.setData({
           ['page.current']:1,
+          list:[]
         })
         setTimeout(function () {
             that.init() 
@@ -23,6 +37,7 @@ Page({
     },
     // 上滑加载
     onReachBottom(){
+        let that=this
         let current = this.data.page.current+1
         this.setData({
           ['page.current']:current,
@@ -47,9 +62,10 @@ Page({
         app.wxRequest('GET','/channel/staff',query,e=>{
           var res = e.data
           if (res.code ==200) {
-              that.setData({
-                  list: res.data,
-              })
+            let arr = that.data.list.concat(res.data)
+            that.setData({
+                list: arr,
+            })
           } else {
             wx.showToast({
                 title: '获取数据失败，请稍后再试',
@@ -74,6 +90,5 @@ Page({
     toDetail(e) {
         let task = e.currentTarget.dataset.task
         wx.navigateTo({url: '/pages/admin/detail?id=' + task.id})
-
     },
 });

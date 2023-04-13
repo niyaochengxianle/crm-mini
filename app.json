@@ -14,6 +14,7 @@
     "pages/custom/sales",
     "pages/custom/course",
     "pages/custom/detail",
+    "pages/custom/reg",
     "pages/course/index",
     "pages/course/list"
   ],

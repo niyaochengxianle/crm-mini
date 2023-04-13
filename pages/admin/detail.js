@@ -14,6 +14,7 @@ Page({
     this.setData({
       loading:true
     })
+    let that = this
     this.setData({
       ['info.isEnable']:false
     })
@@ -30,17 +31,20 @@ Page({
               duration: 2000
           })
           wx.navigateTo({
-            url: '/pages/admin/list',
+            url: '/pages/admin/index',
           })
         }
       },fail(e){},complete(e){
-        this.setData({
+        that.setData({
           loading:false
         })
       }
     })
   },
   getInfo(id){
+    this.setData({
+      loading:true
+    })
     var that = this
     wx.request({
       url: wx.env.baseUrl +"/channel/staff/"+id,
@@ -49,14 +53,15 @@ Page({
         var res = e.data
         if(res.code==='200'){
           that.setData({
-            info:res.data
+            info:res.data,
+            loading:false
           })
         }else{
-          wx.showToast({
-            title: res.msg,
-            icon: 'none',
-            duration: 2000
-        })
+            wx.showToast({
+              title: res.msg,
+              icon: 'none',
+              duration: 2000
+          })
         }
       },fail(e){
         wx.showToast({
@@ -65,6 +70,9 @@ Page({
           duration: 2000
         })
       },complete(e){
+        that.setData({
+          loading:false
+        })
       }
     })
   },

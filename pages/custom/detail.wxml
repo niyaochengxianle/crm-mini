@@ -7,18 +7,22 @@
   <view class="line-c">
     <view class="l-circle"></view>
     <text class="line-t">姓名:</text>
-    <text class="line-v"></text>
+    <text class="line-v">{{info.name}}</text>
   </view>
   <!-- copy -->
   <view class="line-c">
     <view class="l-circle"></view>
     <text class="line-t">电话号码:</text>
-    <text class="line-v"></text>
+    <text class="line-v line-phone" bindtap="Tel" data-tel="{{info.phone}}">{{info.phone}}</text>
   </view>
   <view class="line-c">
     <view class="l-circle"></view>
     <text class="line-t">状态:</text>
-    <text class="line-v"></text>
+    <text class="line-v">
+      <text class="list-y" wx:if="{{info.state==2}}"> 已回访</text>
+      <text wx:if="{{info.state==1}}" class="type-tag">未回访</text>
+      <text class="type-tag" wx:if="{{info.state==0}}" bindtap="toPlan"> 未分配</text>
+    </text>
   </view>
   <view class="line-c">
     <view class="l-circle"></view>
@@ -31,4 +35,7 @@
     <text class="line-v"></text>
   </view>
 </view>
+<loading hidden="{{!loading}}">
+    加载中...
+</loading>
 

@@ -1,4 +1,5 @@
 // pages/custom/index.js
+const areaList= require('../../utils/areaArr')
 Page({
 
   /**
@@ -21,8 +22,15 @@ Page({
   onClose() {
     this.setData({ show: false });
   },
-  confirmArea(){},
-  cancelArea(){},
+  confirmArea(e){
+    let arr = e.detail.values
+    let code = arr[0].code+'_'+arr[1].code
+    let val=arr[0].name+'_'+arr[1].name
+    this.onClose()
+  },
+  cancelArea(e){
+    this.onClose()
+  },
     // 关闭选择状态
   closePicker() {
     this.setData({ showPicker: false });
@@ -36,14 +44,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(areaList)
+    this.setData({
+      areaList:areaList.areaList
+    })
+    console.log(this.data.areaList)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

@@ -3,6 +3,8 @@
 <view class="task-box">
     <van-search
         value="{{ page.keyWord }}"
+        bind:change="setVal"
+        bind:search="onSearch"
         left-icon="/image/admin/search.png"
         background="#f9f9f9"
         placeholder="请输入搜索关键词"

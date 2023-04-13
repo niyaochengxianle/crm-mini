@@ -5,14 +5,72 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loading:false,
+    info:{}
 
   },
-
+  // 拨打电话
+  Tel: function (e) {
+    var tel = e.currentTarget.dataset.tel;
+    wx.makePhoneCall({
+      phoneNumber: tel,
+      success: function () {
+        console.log("拨号成功！")
+      },
+      fail: function () {
+        console.log("拨号失败！")
+      }
+    })
+  },
+  getInfo(id){
+    this.setData({
+      loading:true
+    })
+    var that = this
+    wx.request({
+      url: wx.env.baseUrl +"/channel/customer/"+id,
+      method:'get',
+      success(e){
+        var res = e.data
+        if(res.code==='200'){
+          that.setData({
+            info:res.data,
+            loading:false
+          })
+        }else{
+            wx.showToast({
+              title: res.msg,
+              icon: 'none',
+              duration: 2000
+          })
+        }
+      },fail(e){
+        wx.showToast({
+          title: e.errMsg,
+          icon: 'none',
+          duration: 2000
+        })
+      },complete(e){
+        that.setData({
+          loading:false
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if(!options.id){
+      wx.showToast({
+          title: '获取参数失败，请重新进入',
+          icon: 'none',
+          duration: 2000
+      })
+      return false
+    }else{
+       this.getInfo(options.id)
+    }
   },
 
   /**

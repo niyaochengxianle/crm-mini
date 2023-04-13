@@ -65,6 +65,16 @@ Page({
                 icon:'/image/icon/qd.png',
                 text:'业务员列表'
             },
+            {
+                path:'/pages/sales/reg',
+                icon:'/image/icon/qd.png',
+                text:'业务员注册'
+            },
+            {
+                path:'/pages/custom/reg',
+                icon:'/image/icon/qd.png',
+                text:'客户注册'
+            },
         ],
         notLogin: false,
         active:0,
@@ -196,13 +206,155 @@ Page({
           })
     },
     showMenu(){
+        let type = wx.getStorageSync('type')
+        // 0-渠道管理员 1-渠道业务员 2-区域总经理 3-区域业务员 4-直营当地渠道管理员 5-直营当地分公司 6-直营当地分公司业务员 7-客户
         //渠道管理员 课程扫码 客户列表 客户查询 业务员列表 邀请业务员 课程列表
         //渠道业务员 课程扫码 客户列表 客户查询 客户邀请 课程列表  
         //区域总经理 课程扫码 客户列表 课程排期 邀请业务员
         //区域业务员 课程扫码 客户列表 课程列表
-        //直营当地渠道管理员 渠道邀请 客户列表 课程列表 课程扫码
+         //渠道管理员
+        let menu = [
+            {
+                path:'/pages/custom/course',
+                icon:'/image/icon/kcsm.png',
+                text:'课程扫码'
+            },
+            {
+                path:'/pages/custom/list',
+                icon:'/image/icon/cx.png',
+                text:'客户查询'
+            },
+            {
+                path:'/pages/custom/list',
+                icon:'/image/icon/xx.png',
+                text:'客户信息'
+            },
+            {
+                path:'/pages/admin/index',
+                icon:'/image/icon/qd.png',
+                text:'业务员列表'
+            },
+        ]
+        //渠道业务员
+        let menu1=[
+            {
+                path:'/pages/course/list',
+                icon:'/image/icon/lr.png',
+                text:'课程列表-扫码'
+            },
+            {
+                path:'/pages/custom/list',
+                icon:'/image/icon/cx.png',
+                text:'客户列表-查询'
+            },
+            {
+                path:'/pages/sales/view',
+                icon:'/image/icon/cx.png',
+                text:'客户邀请'
+            },
+        ]
+        //区域总经理
+        let menu2=[
+            {
+                path:'/pages/admin/invite',
+                icon:'/image/icon/qd.png',
+                text:'邀请业务员'
+            },
+            {
+                path:'/pages/course/list',
+                icon:'/image/icon/lr.png',
+                text:'课程列表-扫码'
+            },
+            {
+                path:'/pages/admin/index',
+                icon:'/image/icon/qd.png',
+                text:'业务员列表'
+            },
+            {
+                path:'/pages/custom/list',
+                icon:'/image/icon/cx.png',
+                text:'客户列表'
+            },
+        ]
+        //区域业务员
+        let menu3=[
+            {
+                path:'/pages/course/list',
+                icon:'/image/icon/lr.png',
+                text:'课程列表-扫码'
+            },
+            {
+                path:'/pages/custom/list',
+                icon:'/image/icon/cx.png',
+                text:'客户列表'
+            },
+        ]
+         //直营当地渠道管理员 渠道邀请 客户列表 课程列表 课程扫码
         // 直营地当地分公司 课程扫码 客户列表 客户查询 邀请业务员
         //直营地当地分公司业务员 邀请客户 客户列表 客户查询
+        let menu4=[
+            {
+                path:'/pages/course/list',
+                icon:'/image/icon/lr.png',
+                text:'课程列表-扫码'
+            },
+            {
+                path:'/pages/custom/list',
+                icon:'/image/icon/cx.png',
+                text:'客户列表'
+            },
+        ]
+        let menu5=[
+            {
+                path:'/pages/course/list',
+                icon:'/image/icon/lr.png',
+                text:'课程列表-扫码'
+            },
+            {
+                path:'/pages/admin/invite',
+                icon:'/image/icon/qd.png',
+                text:'邀请业务员'
+            },
+            {
+                path:'/pages/custom/list',
+                icon:'/image/icon/cx.png',
+                text:'客户列表'
+            },
+        ]
+        let menu6=[
+            {
+                path:'/pages/custom/list',
+                icon:'/image/icon/cx.png',
+                text:'客户列表-查询'
+            },
+            {
+                path:'/pages/sales/view',
+                icon:'/image/icon/cx.png',
+                text:'客户邀请'
+            },
+        ]
+        let menu7=[
+              {
+                path:'/pages/custom/list',
+                icon:'/image/icon/cx.png',
+                text:'客户列表-查询'
+            },
+        ]
+        if(type==0){
+            this.setData({
+                menuList:menu
+            })
+        }
+        if(type==1){
+            this.setData({
+                menuList:menu1
+            })
+        }
+        if(type==2){
+            this.setData({
+                menuList:menu2
+            })
+        }
 
     },
 })

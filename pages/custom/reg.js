@@ -1,11 +1,11 @@
-// pages/sales/reg.js
+// pages/custom/reg.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    salesInfo:{
+    customInfo:{
       "areaCode": "",
       "areaName": "",
       "channelId": "",
@@ -20,12 +20,12 @@ Page({
   },
   setVal(e){
     this.setData({
-      ['salesInfo.name']:e.detail
+      ['customInfo.name']:e.detail
     })
   },
   setVal1(e){
     this.setData({
-      ['salesInfo.phone']:e.detail
+      ['customInfo.phone']:e.detail
     })
   },
   save(){
@@ -34,9 +34,9 @@ Page({
     })
     let that=this
     wx.request({
-      url: wx.env.baseUrl+'/channel/staff',
+      url: wx.env.baseUrl+'/channel/customer',
       method:'post',
-      data:that.data.salesInfo,
+      data:that.data.customInfo,
       success(e){
         let res = e.data
         if(res.code=='200'){
@@ -64,7 +64,7 @@ Page({
    */
   onLoad: function (options) {
     // this.setData({
-    //   ['salesInfo.masterId']:options.masterId
+    //   ['customInfo.masterId']:options.masterId
     // })
   },
 

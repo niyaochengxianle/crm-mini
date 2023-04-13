@@ -1,7 +1,9 @@
 <!--pages/custom/list.wxml-->
 <view class="task-box">
     <van-search
-        value="{{ page.keyword }}"
+        value="{{ page.keyWord }}"
+        bind:change="setVal"
+        bind:search="onSearch"
         left-icon="/image/admin/search.png"
         background="#f9f9f9"
         placeholder="请输入搜索关键词"
@@ -12,14 +14,14 @@
         <view class="box-right">
             <view class="box-right-item1">
                 <view class="title">{{ item.name }}</view>
-                <view class="list-b">联系方式：13544667799</view>
+                <view class="list-b">联系方式：{{item.phone}}</view>
             </view>
             <view class="list-y">
-                <!-- <text> 已回访</text> -->
-                <!-- <view class="type-tag" bindtap="Tel" data-tel="15008168545">
+                <text wx:if="{{item.state==2}}"> 已回访</text>
+                <view wx:if="{{item.state==1}}" class="type-tag" bindtap="Tel" data-tel="{{item.phone}}">
                   未回访
-                </view> -->
-                <view class="type-tag" bindtap="toPlan">
+                </view>
+                <view class="type-tag" wx:if="{{item.state==0}}" bindtap="toPlan">
                     未分配
                 </view>
             </view>

@@ -1,0 +1,34 @@
+<!--pages/custom/reg.wxml 客户注册-->
+<view class="sales-img">
+  <image src="/image/s.png" style="width:100%;height:100%;"  fit="contain"></image>
+</view>
+<view class="sales-s">
+  <text>扫码成功</text>
+</view>
+<view class="sales-d">
+  <text>请填写相关信息注册客户</text>
+</view>
+<view class="sales-c">
+  <!-- <view class="sales-c-t">
+    <text>
+      {{salesInfo.channelName}}
+    </text>
+  </view> -->
+  <view class="info-top">
+        <view class="input-l">
+          <text>姓名*</text>
+        </view>
+        <van-field label-class="van-field_r" size="large" bind:input="setVal" input-class="van-field_r" model:value="{{customInfo.name}}"  placeholder="请输入姓名"  />
+        <view class="input-l">
+          <text>手机号*</text>
+        </view>
+        <van-field label-class="van-field_r" size="large" bind:input="setVal1" input-class="van-field_r" model:value="{{customInfo.phone}}"  placeholder="请输入手机号"   />
+        <view class="input-l">
+          <text>区域</text>
+        </view>
+        <van-field label-class="van-field_r" readonly size="large" bind:input="setVal1" input-class="van-field_r" model:value="{{customInfo.areaName}}"  placeholder="请选择市区"   />
+    </view>
+    <view class="content-btn">
+      <van-button color="#004ce5" loading="{{loading}}" block bind:tap="save">提 交</van-button>
+    </view>
+</view>

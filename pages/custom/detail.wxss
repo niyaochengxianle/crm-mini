@@ -33,8 +33,27 @@ page{
 .line-t{
   margin:0 15rpx;
 }
+.line-phone{
+  color:#004ce5;
+}
 .content-btn{
   width:350rpx;
   height:90rpx;
   margin: 240rpx auto 50rpx;
+}
+.list-y{
+  min-width:100rpx;
+  font-size:28rpx;
+  color:#FA9A00;
+  margin-top:20rpx;
+}
+.type-tag{
+  height:54rpx;
+  padding:0 15rpx;
+  background-color: #004ce5;
+  line-height: 54rpx;
+  color:#fff;
+  text-decoration: underline;
+  border-radius:10rpx;
+  letter-spacing: 1px;
 }

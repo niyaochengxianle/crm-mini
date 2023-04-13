@@ -34,3 +34,6 @@
       <van-button color="#004ce5" loading="{{loading}}" block bind:tap="toOffline"> 下线该业务员 </van-button>
   </view>
 </view>
+<loading hidden="{{!loading}}">
+        加载中...
+    </loading>

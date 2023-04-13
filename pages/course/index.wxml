@@ -43,6 +43,7 @@
     bind:input='setVal2'
     model:value="{{form.signPerson}}" 
     input-align="right" label="签到负责人"  placeholder="请输入" />
+    <van-cell title="课程区域" is-link   value="{{form.areaName}}" required  bind:click="showPopup" />
     <van-field label-class="van-field_r" 
     size="large"
     required
@@ -79,3 +80,8 @@
               bind:cancel="clearTime2"
       />
   </van-popup>
+  <van-popup show="{{ show }}" bind:close="onClose" round
+  position="bottom"
+  custom-style="height: 60%">
+  <van-area area-list="{{ areaList }}" bind:confirm="confirmArea" bind:cancel="cancelArea" columns-num="{{ 2 }}" title="选择区域" />
+</van-popup>
