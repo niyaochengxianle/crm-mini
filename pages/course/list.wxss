@@ -1,6 +1,6 @@
 /* pages/course/list.wxss */
 page{
-  background-color: #f5f5f5;
+  background-color: #f9f9f9;
 }
 view .van-search__content {
   background: #fff;
@@ -9,4 +9,45 @@ view .van-search__content {
   color:#004ce5 !important;
   font-size:28rpx;
   letter-spacing: 1px;
+}
+.van-cell{
+  background-color: #f9f9f9 !important;
+}
+.van-cell__title{
+  font-size:32rpx;
+  color:#004ce5;
+}
+.van-collapse-item__content{
+  background-color: #f9f9f9 !important;
+  padding:0px !important;
+}
+.item-list{
+  height:90rpx;
+  margin-bottom:20rpx;
+  padding:0 30rpx;
+  background-color: #fff;
+}
+.table-h{
+  color:#333;
+  font-size:28rpx;
+  height:90rpx;
+  line-height: 90rpx;
+  background-color: #fff;
+  text-align: center;
+}
+.table-c{
+  color:#333;
+  font-size:24rpx;
+  height:90rpx;
+  padding:30rpx;
+  background-color: #fff;
+  text-align: center;
+}
+.bg-h{
+  border-top:1rpx solid #e6e6e6;
+  background-color: #fff;
+}
+.bg-w{
+  background-color: #fff;
+  margin-bottom:20rpx;
 }

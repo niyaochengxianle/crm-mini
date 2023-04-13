@@ -6,4 +6,48 @@
         background="#f9f9f9"
         placeholder="请输入搜索关键词"
         />
+        <van-tabs active="{{ active }}" color="#004ce5" bind:change="onChange">
+            <van-tab title="按地区排序">
+                <van-collapse value="{{ activeNames }}" bind:change="onChange">
+                    <van-collapse-item title="北京" name="1" custom-class="new-item" content-class="content-class">
+                        <view>
+                            <view class="item-list">1222</view>
+                            <view class="item-list">12333555</view>
+                        </view>
+                    </van-collapse-item>
+                    <van-collapse-item title="成都" name="2">
+                        代码是写出来给人看的，附带能在机器上运行
+                    </van-collapse-item>
+                    <van-collapse-item title="上海" name="3" disabled>
+                        代码是写出来给人看的，附带能在机器上运行
+                    </van-collapse-item>
+                </van-collapse>
+            </van-tab>
+            <van-tab title="按时间排序">
+                <view>
+                    <view class="bg-h">
+                        <van-row gutter="10" class="table-h">
+                            <van-col span="6">日期</van-col>
+                            <van-col span="9">课程名</van-col>
+                            <van-col span="4">地点</van-col>
+                            <van-col span="5">状态</van-col>
+                        </van-row>
+                    </view>
+                    <view class="bg-w">
+                        <van-row gutter="10" class="table-c">
+                            <van-col span="6">4.14-4.16</van-col>
+                            <van-col span="9">《如何提高自己》 《如何提高自己》 《如何提高自己》</van-col>
+                            <van-col span="4">成都</van-col>
+                            <van-col span="5">待开课</van-col>
+                        </van-row>
+                        <van-row gutter="10" class="table-c">
+                            <van-col span="6">4.14-4.16</van-col>
+                            <van-col span="9">《如何提高自己》</van-col>
+                            <van-col span="4">成都</van-col>
+                            <van-col span="5">待开课</van-col>
+                        </van-row>
+                    </view>
+                </view>
+            </van-tab>
+        </van-tabs>
 </view>

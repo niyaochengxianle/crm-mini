@@ -53,6 +53,8 @@
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-area": "@vant/weapp/area/index",
     "van-radio": "@vant/weapp/radio/index",
-    "van-radio-group": "@vant/weapp/radio-group/index"
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index"
   }
 }

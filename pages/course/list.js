@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activeNames:['1','2']
+    activeNames:['1','2','3'],
+    active:1
   },
 
   /**

@@ -2,11 +2,11 @@ const app = getApp()
 Page({
     data: {
         channelInfo:{
-            name:'渠道名',
-            code:'No111134555',
-            userName:'',
+            name:'',
+            channelId:'',
+            channelName:'',
             phone:'',
-            passWord:''
+            password:''
         },
         tabList:[
             {
@@ -68,9 +68,22 @@ Page({
         ],
         notLogin: false,
         active:0,
+        isFirst:false,
+        isAdmin:true,
+        loading:false
     },
     onLoad() {
         let that = this
+        let type = wx.getStorageSync('type')
+        if(type=='0'){
+            this.setData({
+                isAdmin:true
+            })
+        }else{
+            this.setData({
+                isAdmin:false
+            })
+        }
         let userInfo = wx.getStorageSync('person')
         let personId=wx.getStorageSync("personId")
         if(!personId){
@@ -79,8 +92,80 @@ Page({
             })
             return 
         }
+        if(userInfo.password=='123456'){
+            this.setData({
+                isFirst:true
+            })
+        }else{
+            this.setData({
+                isFirst:false
+            })
+        }
         this.setData({
             channelInfo: userInfo
+        })
+    },
+    //修改密码
+    updatePas(){
+        this.setData({
+            loading:true
+        })
+        let that = this
+        wx.request({
+          url:wx.env.baseUrl+ '/channel/master',
+          method:'post',
+          data:this.data.channelInfo,
+          success(e){
+              let res = e.data
+              if(res.code=='200'){
+                  wx.showToast({
+                    title: '修改成功',
+                    icon:'none',
+                    duration:2000
+                  })
+                  this.setData({
+                    isFirst:false
+                })
+              }else{
+                wx.showToast({
+                    title: '请求失败，请稍后再试',
+                    icon:'none',
+                    duration:2000
+                  })
+              }
+              that.getInfo()
+          },
+          fail(e){
+            wx.showToast({
+                title: '请求失败，请稍后再试',
+                icon:'none',
+                duration:2000
+              })
+          },
+          complete(e){
+              this.setData({
+                  loading:false
+              })
+          }
+        })
+    },
+    getInfo(){
+        wx.request({
+            url:wx.env.baseUrl+ '/channel/master'+this.data.channelInfo.id,
+            method:'get',
+            success(e){
+                let res = e.data
+                if(res.code=='200'){
+                    this.setData({
+                        channelInfo:res.data
+                    })
+                }
+            }
+        })
+    },
+    setVal(e){
+        this.setData({
+           [' channelInfo.passWord']:e.detail
         })
     },
     toInvite(){
@@ -109,6 +194,16 @@ Page({
          wx.navigateTo({
             url: path,
           })
-    }
+    },
+    showMenu(){
+        //渠道管理员 课程扫码 客户列表 客户查询 业务员列表 邀请业务员 课程列表
+        //渠道业务员 课程扫码 客户列表 客户查询 客户邀请 课程列表  
+        //区域总经理 课程扫码 客户列表 课程排期 邀请业务员
+        //区域业务员 课程扫码 客户列表 课程列表
+        //直营当地渠道管理员 渠道邀请 客户列表 课程列表 课程扫码
+        // 直营地当地分公司 课程扫码 客户列表 客户查询 邀请业务员
+        //直营地当地分公司业务员 邀请客户 客户列表 客户查询
+
+    },
 })
 ;
