@@ -8,10 +8,10 @@
 <!-- 显示信息 -->
 <view wx:if="{{!isEdit}}">
   <view class="sales-info">
-    <text>姓名：</text>
+    <text>姓名：{{info.name}}</text>
   </view>
   <view class="sales-info">
-    <text>联系电话：</text>
+    <text>联系电话：{{info.phone}}</text>
   </view>
   <view class="container-btn">
     <van-button color="#333333" type="default" plain bind:click="showEdit">编 辑</van-button>
@@ -24,11 +24,11 @@
     <view class="input-l">
       <text>姓名*</text>
     </view>
-    <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{salesInfo.name}}"  label="请输入姓名"  placeholder="" />
+    <van-field label-class="van-field_r" bind:input="setVal" size="large" input-class="van-field_r" model:value="{{info.name}}"  placeholder="请输入姓名" />
     <view class="input-l">
       <text>手机号*</text>
     </view>
-    <van-field label-class="van-field_r" size="large" input-class="van-field_r" model:value="{{salesInfo.phone}}"  label="请输入手机号"  placeholder="" />
+    <van-field label-class="van-field_r"  bind:input="setVal1" size="large" input-class="van-field_r" model:value="{{info.phone}}"  placeholder="请输入手机号" />
 </view>
 <view class="container-btn">
   <van-button color="#333333" type="default" plain bind:tap="closeEdit">取 消</van-button>
@@ -40,4 +40,7 @@
     <image src='' style="height:360rpx;width:360rpx;border:1px solid" ></image>
   </view>
 </van-popup>
+<loading hidden="{{!loading}}">
+        加载中...
+    </loading>
 

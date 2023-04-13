@@ -27,14 +27,25 @@ Page({
                 iconPath:"/image/icon/cs_1.png",
                 selectedIconPath: "/image/icon/cs.png",
             },
-            {
-                pagePath: "/pages/index/index",
-                text: "我的",
-                iconPath:"/image/icon/m_1.png",
-                selectedIconPath: "/image/icon/m.png",
-            }
+            // {
+            //     pagePath: "/pages/index/index",
+            //     text: "我的",
+            //     iconPath:"/image/icon/m_1.png",
+            //     selectedIconPath: "/image/icon/m.png",
+            // }
         ],
         menuList:[
+            {
+                path:'/pages/sales/index',
+                // path:'/pages/sales/reg',
+                icon:'/image/icon/qd.png',
+                text:'业务员注册'
+            },
+            {
+                path:'/pages/custom/reg',
+                icon:'/image/icon/qd.png',
+                text:'客户注册'
+            },
             {
                 path:'/pages/custom/course',
                 icon:'/image/icon/kcsm.png',
@@ -64,16 +75,6 @@ Page({
                 path:'/pages/admin/index',
                 icon:'/image/icon/qd.png',
                 text:'业务员列表'
-            },
-            {
-                path:'/pages/sales/reg',
-                icon:'/image/icon/qd.png',
-                text:'业务员注册'
-            },
-            {
-                path:'/pages/custom/reg',
-                icon:'/image/icon/qd.png',
-                text:'客户注册'
             },
         ],
         notLogin: false,
@@ -133,7 +134,7 @@ Page({
                     icon:'none',
                     duration:2000
                   })
-                  this.setData({
+                  that.setData({
                     isFirst:false
                 })
               }else{
@@ -142,7 +143,7 @@ Page({
                     icon:'none',
                     duration:2000
                   })
-              }
+                }
               that.getInfo()
           },
           fail(e){
@@ -153,7 +154,7 @@ Page({
               })
           },
           complete(e){
-              this.setData({
+            that.setData({
                   loading:false
               })
           }

@@ -7,6 +7,54 @@ Page({
   data: {
     show:false,
     isEdit:false,
+    info:{},
+    loading:false
+  },
+  //获取业务员详情
+  getInfo(id){
+    this.setData({
+      loading:true
+    })
+    let that = this
+    wx.request({
+      url: wx.env.baseUrl +"/channel/staff/"+id,
+      method:'get',
+      success(e){
+        var res = e.data
+        if(res.code==='200'){
+          that.setData({
+            info:res.data,
+            loading:false
+          })
+        }else{
+            wx.showToast({
+              title: res.msg,
+              icon: 'none',
+              duration: 2000
+          })
+        }
+      },fail(e){
+        wx.showToast({
+          title: e.errMsg,
+          icon: 'none',
+          duration: 2000
+        })
+      },complete(e){
+        that.setData({
+          loading:false
+        })
+      }
+    })
+  },
+  setVal(e){
+    this.setData({
+      ['info.name']:e.detail
+    })
+  },
+  setVal1(e){
+    this.setData({
+      ['info.phone']:e.detail
+    })
   },
   //打开二维码显示
   showPopup() {
@@ -26,13 +74,40 @@ Page({
   },
   // 保存编辑信息
   save(){
-
+    this.setData({
+      loading:true,
+    })
+    let that=this
+    wx.request({
+      url: wx.env.baseUrl+'/channel/staff',
+      method:'post',
+      data:that.data.info,
+      success(e){
+        let res = e.data
+        if(res.code=='200'){
+          wx.showToast({
+            title: '编辑成功',
+            icon:'none',
+            duration:2000
+          })
+          that.setData({
+            loading:false,
+            isEdit:false
+          })
+        }
+      },fail(e){},complete(e){
+        that.setData({
+          loading:false
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let id = wx.getStorageSync('personId')
+    this.getInfo(id)
   },
 
   /**

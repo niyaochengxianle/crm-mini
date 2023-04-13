@@ -9,6 +9,9 @@ Page({
   },
   tapScan: function() {
     // 调用wx.login获取微信登录凭证
+    wx.navigateTo({
+      url: '/pages/sales/index',
+    })
     wx.scanCode({
       success: function(res) {
         console.log(res)
