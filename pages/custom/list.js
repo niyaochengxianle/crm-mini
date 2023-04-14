@@ -25,10 +25,10 @@ Page({
     wx.makePhoneCall({
       phoneNumber: tel,
       success: function () {
-        console.log("拨号成功！")
+        // console.log("拨号成功！")
       },
       fail: function () {
-        console.log("拨号失败！")
+        // console.log("拨号失败！")
       }
     })
   },

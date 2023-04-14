@@ -2,14 +2,16 @@
 <view class="task-box">
     <van-search
         value="{{ page.keyWord }}"
+        bind:change="setVal"
+        bind:search="onSearch"
         left-icon="/image/admin/search.png"
         background="#f9f9f9"
         placeholder="请输入搜索关键词"
         />
         <van-tabs active="{{ active }}" color="#004ce5" bind:change="onChange">
             <van-tab title="按地区排序">
-                <van-collapse value="{{ activeNames }}" bind:change="onChange">
-                    <van-collapse-item title="北京" name="1" custom-class="new-item" content-class="content-class">
+                <van-collapse value="{{ activeNames }}">
+                    <van-collapse-item title="北京" name="{{1}}" custom-class="new-item" content-class="content-class">
                         <view>
                             <view class="item-list">1222</view>
                             <view class="item-list">12333555</view>
@@ -50,4 +52,11 @@
                 </view>
             </van-tab>
         </van-tabs>
+</view>
+<loading hidden="{{!loading}}">
+    加载中...
+</loading>
+<view class="add-lesson" bind:tap="toAdd">
+    <van-icon name="plus" size="25px" />
+    <text>创建课程</text>
 </view>

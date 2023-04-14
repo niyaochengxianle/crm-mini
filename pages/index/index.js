@@ -27,12 +27,12 @@ Page({
                 iconPath:"/image/icon/cs_1.png",
                 selectedIconPath: "/image/icon/cs.png",
             },
-            // {
-            //     pagePath: "/pages/index/index",
-            //     text: "我的",
-            //     iconPath:"/image/icon/m_1.png",
-            //     selectedIconPath: "/image/icon/m.png",
-            // }
+            {
+                pagePath: "/",
+                text: "我的",
+                iconPath:"/image/icon/m_1.png",
+                selectedIconPath: "/image/icon/m.png",
+            }
         ],
         menuList:[
             {

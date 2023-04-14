@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "课程列表"
+  "navigationBarTitleText": "课程列表",
+  "enablePullDownRefresh": true
 }
