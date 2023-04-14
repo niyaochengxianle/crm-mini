@@ -12,16 +12,11 @@
             <van-tab title="按地区排序">
                 <van-collapse value="{{ activeNames }}">
                     <van-collapse-item title="北京" name="{{1}}" custom-class="new-item" content-class="content-class">
-                        <view>
-                            <view class="item-list">1222</view>
-                            <view class="item-list">12333555</view>
+                        <view class="course-item">
+                            <view class="l-circle"></view>
+                            <view class="item-name">1222</view>
+                            <view class="item-state">12333555</view>
                         </view>
-                    </van-collapse-item>
-                    <van-collapse-item title="成都" name="2">
-                        代码是写出来给人看的，附带能在机器上运行
-                    </van-collapse-item>
-                    <van-collapse-item title="上海" name="3" disabled>
-                        代码是写出来给人看的，附带能在机器上运行
                     </van-collapse-item>
                 </van-collapse>
             </van-tab>

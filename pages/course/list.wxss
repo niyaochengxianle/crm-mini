@@ -23,12 +23,6 @@ view .van-search__content {
   background-color: #f9f9f9 !important;
   padding:0px !important;
 }
-.item-list{
-  height:90rpx;
-  margin-bottom:20rpx;
-  padding:0 30rpx;
-  background-color: #fff;
-}
 .table-h{
   color:#333;
   font-size:28rpx;
@@ -52,6 +46,7 @@ view .van-search__content {
 .bg-w{
   background-color: #fff;
   margin-bottom:20rpx;
+  height: auto;
 }
 .add-lesson{
   position: absolute;
@@ -68,4 +63,38 @@ view .van-search__content {
   justify-content: center;
   color:#fff;
   font-size:24rpx;
+}
+.l-circle{
+  width:12rpx;
+  height:12rpx;
+  border-radius:50%;
+  background-color: #004ce5;
+}
+.course-item{
+  display: flex;
+  min-height:90rpx;
+  flex-direction: row;
+  background-color: #fff;
+  align-items: center;
+  /* justify-content: center; */
+  padding:0 30rpx;
+}
+.item-name{
+  flex:1;
+  color:#333;
+  font-size:28rpx;
+  padding:0 30rpx;
+}
+.item-state{
+  font-size: 28rpx;
+  font-weight: 400;
+}
+.s-w{
+  color: #FA9A00;
+}
+.s-a{ 
+  color: #004CE5;
+}
+.s-o{
+  color:#666666;
 }
