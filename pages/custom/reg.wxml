@@ -24,11 +24,20 @@
         </view>
         <van-field label-class="van-field_r" size="large" bind:input="setVal1" input-class="van-field_r" model:value="{{customInfo.phone}}"  placeholder="请输入手机号"   />
         <view class="input-l">
-          <text>区域</text>
+          <text>区域*</text>
         </view>
-        <van-field label-class="van-field_r" readonly size="large" bind:input="setVal1" input-class="van-field_r" model:value="{{customInfo.areaName}}"  placeholder="请选择市区"   />
+        <van-field  label="" label-class="van-field_r" readonly size="large"  input-class="van-field_r" model:value="{{customInfo.areaName}}"  placeholder="请选择区域"  bind:click-icon="showPopup"  bind:click-input="showPopup">
+          <view slot="button" bind:tap="showPopup" class="slot-button">
+              <van-icon name="arrow"/>
+          </view>
+        </van-field>
     </view>
     <view class="content-btn">
       <van-button color="#004ce5" loading="{{loading}}" block bind:tap="save">提 交</van-button>
     </view>
 </view>
+<van-popup show="{{ show }}" bind:close="onClose" round
+  position="bottom"
+  custom-style="height: 60%">
+  <van-area area-list="{{ areaList }}" bind:confirm="confirmArea" bind:cancel="cancelArea" columns-num="{{ 2 }}" title="选择区域" />
+</van-popup>

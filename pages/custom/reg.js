@@ -1,4 +1,5 @@
 // pages/custom/reg.js
+const areaList= require('../../utils/areaArr')
 Page({
 
   /**
@@ -16,7 +17,12 @@ Page({
       "openId": "",
       "phone": "",
     },
-    loading:false
+    loading:false,
+    show:false,
+    areaList:[],
+  },
+  checkPhone(phone){
+    return /^1[2-9]\d{9}$/.test(phone)
   },
   setVal(e){
     this.setData({
@@ -29,6 +35,28 @@ Page({
     })
   },
   save(){
+    if(!this.data.customInfo.name){
+      wx.showToast({
+      title: '请输入姓名',
+      icon:'none'
+      })
+      return false
+    }
+    let check = this.checkPhone(this.data.customInfo.phone)
+    if(!check){
+      wx.showToast({
+        title: '请输入正确手机号',
+        icon:'none'
+      })
+      return false
+    }
+  if(!this.data.customInfo.areaName){
+    wx.showToast({
+      title: '请选择区域',
+      icon:'none'
+    })
+    return false
+}
     this.setData({
       loading:true,
     })
@@ -59,13 +87,34 @@ Page({
       }
     })
   },
+   //打开选择市区
+   showPopup() {
+    this.setData({ show: true });
+  },
+  // 关闭选择市区
+  onClose() {
+    this.setData({ show: false });
+  },
+  confirmArea(e){
+    let arr = e.detail.values
+    let code = arr[0].code+'_'+arr[1].code
+    let val=arr[0].name+'_'+arr[1].name
+    this.setData({
+        ['customInfo.areaName']:val,
+        ['customInfo.areaCode']:code
+    })
+    this.onClose()
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.setData({
-    //   ['customInfo.masterId']:options.masterId
-    // })
+    this.setData({
+      areaList:areaList.areaList,
+      ['customInfo.masterId']:options.masterId,
+      ['custonInfo.areaName']:options.areaName,
+      ['custonInfo.areaCode']:options.areaCode,
+    })
   },
 
   /**

@@ -7,7 +7,6 @@ Page({
     onLoad: function (options) {
         wx.login({
             success:(key)=>{
-                console.log(key)
               this.setData({
                   code:key.code,
               })
@@ -16,7 +15,6 @@ Page({
     },
     // 授权登录
     baseLogin(loginInfo) {
-        console.log(loginInfo)
         if(loginInfo.detail.errMsg == "getPhoneNumber:ok"){
 
         }
