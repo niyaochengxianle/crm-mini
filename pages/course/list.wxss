@@ -23,6 +23,10 @@ view .van-search__content {
   background-color: #f9f9f9 !important;
   padding:0px !important;
 }
+.bg-a{
+  padding: 0 20rpx;
+  background-color: #fff;
+}
 .table-h{
   color:#333;
   font-size:28rpx;
@@ -34,10 +38,10 @@ view .van-search__content {
 .table-c{
   color:#333;
   font-size:24rpx;
-  height:90rpx;
-  padding:30rpx;
   background-color: #fff;
   text-align: center;
+  height:auto;
+  margin:20rpx 5rpx;
 }
 .bg-h{
   border-top:1rpx solid #e6e6e6;
@@ -64,6 +68,7 @@ view .van-search__content {
   color:#fff;
   font-size:24rpx;
 }
+
 .l-circle{
   width:12rpx;
   height:12rpx;

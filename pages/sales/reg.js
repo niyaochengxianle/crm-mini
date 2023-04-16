@@ -16,6 +16,7 @@ Page({
       "openId": "",
       "phone": "",
     },
+    info:{},
     loading:false
   },
   setVal(e){
@@ -81,11 +82,46 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.setData({
-    //   ['salesInfo.masterId']:options.masterId
-    // })
+    this.setData({
+      ['salesInfo.masterId']:options.id
+    })
+    this.getInfo(options.id)
   },
-
+  getInfo(id){
+    this.setData({
+      loading:true
+    })
+    var that = this
+    wx.request({
+      url: wx.env.baseUrl +"/channel/master/"+id,
+      method:'get',
+      success(e){
+        var res = e.data
+        if(res.code==='200'){
+          that.setData({
+            info:res.data,
+            loading:false
+          })
+        }else{
+            wx.showToast({
+              title: res.msg,
+              icon: 'none',
+              duration: 2000
+          })
+        }
+      },fail(e){
+        wx.showToast({
+          title: e.errMsg,
+          icon: 'none',
+          duration: 2000
+        })
+      },complete(e){
+        that.setData({
+          loading:false
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

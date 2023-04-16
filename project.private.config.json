@@ -89,6 +89,18 @@
           "pathName": "pages/course/list",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "邀请业务员",
+          "pathName": "pages/sales/reg",
+          "query": "scene=1,2",
+          "scene": 1011
+        },
+        {
+          "name": "客户注册",
+          "pathName": "pages/custom/reg",
+          "query": "",
+          "scene": null
         }
       ]
     }

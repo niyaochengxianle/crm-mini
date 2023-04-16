@@ -17,6 +17,7 @@ Page({
       "openId": "",
       "phone": "",
     },
+    info:{},
     loading:false,
     show:false,
     areaList:[],
@@ -111,9 +112,47 @@ Page({
   onLoad: function (options) {
     this.setData({
       areaList:areaList.areaList,
-      ['customInfo.masterId']:options.masterId,
-      ['custonInfo.areaName']:options.areaName,
-      ['custonInfo.areaCode']:options.areaCode,
+      ['customInfo.masterId']:options.id,
+    })
+    this.getInfo(options.id)
+  },
+  getInfo(id){
+    this.setData({
+      loading:true
+    })
+    var that = this
+    wx.request({
+      url: wx.env.baseUrl +"/channel/staff/"+id,
+      method:'get',
+      success(e){
+        var res = e.data
+        if(res.code==='200'){
+          that.setData({
+            info:res.data,
+            loading:false
+          })
+          that.setData({
+            'customInfo.areaName':that.data.info.areaName,
+            'customInfo.areaCode':that.data.info.areaCode,
+          })
+        }else{
+            wx.showToast({
+              title: res.msg,
+              icon: 'none',
+              duration: 2000
+          })
+        }
+      },fail(e){
+        wx.showToast({
+          title: e.errMsg,
+          icon: 'none',
+          duration: 2000
+        })
+      },complete(e){
+        that.setData({
+          loading:false
+        })
+      }
     })
   },
 

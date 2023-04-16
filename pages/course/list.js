@@ -15,7 +15,8 @@ Page({
   onChange(e){
     this.setData({
       active:e.detail.index,
-      ['page.type']:e.detail.index
+      ['page.type']:e.detail.index,
+      list:[],
     })
     this.init()
   },

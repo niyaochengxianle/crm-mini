@@ -4,7 +4,7 @@
         <view class="content-input">
             <!-- <van-cell-group> -->
             <view class="field-h"></view>
-                <van-field label-class="van-field_r" size="large" model:value="{{phone}}" label="账号"    placeholder="请输入账号" />
+                <van-field label-class="van-field_r" size="large" model:value="{{phone}}" label="账号"    placeholder="请输入手机号" />
                 <view class="field-h"></view>
                 <van-field label-class="van-field_r" size="large" model:value="{{password}}" label="密码"  placeholder="请输入密码" />
             <!-- </van-cell-group> -->

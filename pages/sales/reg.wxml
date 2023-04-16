@@ -6,12 +6,12 @@
   <text>扫码成功</text>
 </view>
 <view class="sales-d">
-  <text>请填写相关信息注册 {{salesInfo.channelName}} 渠道业务员</text>
+  <text>请填写相关信息注册 {{info.channelName}} 渠道业务员</text>
 </view>
 <view class="sales-c">
   <view class="sales-c-t">
     <text>
-      {{salesInfo.channelName}}
+      {{info.channelName}}
     </text>
   </view>
   <view class="info-top">
@@ -28,3 +28,6 @@
       <van-button color="#004ce5" loading="{{loading}}" block bind:tap="save">提 交</van-button>
     </view>
 </view>
+<loading hidden="{{!loading}}">
+        加载中...
+    </loading>

@@ -32,8 +32,9 @@ Page({
       }
     })
   },
-  toPlan(){
-    wx.navigateTo({url: '/pages/custom/sales'})
+  toPlan(e){
+    let task = e.currentTarget.dataset.task
+    wx.navigateTo({url: '/pages/custom/sales?id=' + task.id})
   },
   /**
    * 生命周期函数--监听页面加载

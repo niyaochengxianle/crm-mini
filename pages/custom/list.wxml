@@ -21,7 +21,7 @@
                 <view wx:if="{{item.state==1}}" class="type-tag" bindtap="Tel" data-tel="{{item.phone}}">
                   未回访
                 </view>
-                <view class="type-tag" wx:if="{{item.state==0}}" bindtap="toPlan">
+                <view class="type-tag" wx:if="{{item.state==0}}" data-task="{{item}}" bindtap="toPlan">
                     未分配
                 </view>
             </view>

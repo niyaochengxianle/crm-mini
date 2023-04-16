@@ -8,8 +8,35 @@ Page({
     show:false,
     isEdit:false,
     info:{},
-    loading:false
+    loading:false,
+    imgSrc:'',
   },
+  //获取二维码
+  getScanCode(id,type){
+    let url=wx.env.baseUrl+'/wechat/getQrCode/'+id+'/'+type
+    let that = this
+      wx.request({
+        url: url,
+        method:'get',
+        success(e){
+          let res = e.data
+          if(res.code==='200'){
+            that.setData({
+              imgSrc:wx.env.groupUrl+res.data
+            })
+          }
+        },fail(e){
+          wx.showToast({
+              title: '获取二维码失败',
+              icon: 'none',
+              duration: 2000
+          })
+        },complete(e){
+
+        }
+      })
+  },
+
   //获取业务员详情
   getInfo(id){
     this.setData({
@@ -108,6 +135,7 @@ Page({
   onLoad: function (options) {
     let id = wx.getStorageSync('personId')
     this.getInfo(id)
+    this.getScanCode(id,1)
   },
 
   /**

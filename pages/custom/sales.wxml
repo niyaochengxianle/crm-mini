@@ -3,13 +3,15 @@
   <van-search
         value="{{ page.keyword }}"
         left-icon="/image/admin/search.png"
+        bind:change="setVal"
+        bind:search="onSearch"
         background="#f9f9f9"
         placeholder="请输入搜索关键词"
         />
       <van-radio-group value="{{ radio }}" bind:change="onChange">
         <van-cell-group>
-          <van-cell wx:for="{{list}}" wx:key="index" title="{{item.name}}({{item.phone}})"  clickable data-name="{{item.code}}" bind:click="onClick">
-            <van-radio slot="right-icon" name="{{item.code}}" />
+          <van-cell wx:for="{{list}}" wx:key="index" title="{{item.name}}({{item.phone}})"  clickable data-name="{{item.id}}" bind:click="onClick">
+            <van-radio slot="right-icon" name="{{item.id}}" />
           </van-cell>
         </van-cell-group>
     </van-radio-group>
@@ -18,3 +20,6 @@
     <!-- <van-button color="#333333" type="default" plain bind:click="toBack">返 回</van-button> -->
     <van-button color="#004ce5"   type="default" bind:click="confirmSale">确认分配</van-button>
   </view>
+  <loading hidden="{{!loading}}">
+        加载中...
+    </loading>

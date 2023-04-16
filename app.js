@@ -12,8 +12,28 @@ App({
         // wx.env.appKey = '57C0D1EEA84340D7';//微校appKey
     
         wx.env.tips = '系统开小差了，请稍后再试';
+        console.log(option.query.scene)
+        if(option.scene==1011 || option.scene==1012 || option.scene==1013 || option.scene==1047 || option.scene==1048 || option.scene==1049){
+            let scene = option.query.scene
+            let arr = scene.split(',')
+            let id = arr[0]
+            let type = arr[1]
+            //0管理员邀请业务员 1业务员邀请可 ,2进入课程签到
+            if(type==0){
+               let toUrl= '/pages/sales/reg?id='+ id +'&type='+type
+               wx.navigateTo({
+                 url: toUrl,
+               })
+            }
+            if(type==1){
+                let toUrl= '/pages/custom/reg?id='+ id +'&type='+type
+                wx.navigateTo({
+                  url: toUrl,
+                })
+             }
+        }
         // 登录
-        const that = this;
+        // const that = this;
         // that.getToken();
     },
     getToken() {

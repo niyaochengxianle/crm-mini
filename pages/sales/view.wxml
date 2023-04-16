@@ -37,7 +37,7 @@
 </view>
 <van-popup show="{{ show }}" bind:close="onClose">
   <view class="container-p">
-    <image src='' style="height:360rpx;width:360rpx;border:1px solid" ></image>
+    <image src="{{imgSrc}}" style="height:360rpx;width:360rpx;" ></image>
   </view>
 </van-popup>
 <loading hidden="{{!loading}}">
