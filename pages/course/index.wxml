@@ -43,7 +43,7 @@
     bind:input='setVal2'
     model:value="{{form.signPerson}}" 
     input-align="right" label="签到负责人"  placeholder="请输入" />
-    <van-field  label="课程区域" label-class="van-field_r" readonly size="large"  input-class="van-field_r" model:value="{{form.areaName}}"  placeholder="请选择区域"  bind:click-icon="showPopup"  bind:click-input="showPopup">
+    <van-field  label="课程区域" label-class="van-field_r" readonly size="large"  input-class="van-field_r" model:value="{{form.areaName}}"  placeholder="请选择区域"     required  bind:click-icon="showPopup"  bind:click-input="showPopup">
       <view slot="button" bind:tap="showPopup" class="slot-button">
           <van-icon name="arrow"/>
       </view>
