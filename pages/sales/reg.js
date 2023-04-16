@@ -28,7 +28,25 @@ Page({
       ['salesInfo.phone']:e.detail
     })
   },
+  checkPhone(phone){
+    return /^1[2-9]\d{9}$/.test(phone)
+  },
   save(){
+    if(!this.data.salesInfo.name){
+      wx.showToast({
+      title: '请输入姓名',
+      icon:'none'
+      })
+      return false
+    }
+    let check = this.checkPhone(this.data.salesInfo.phone)
+    if(!check){
+      wx.showToast({
+        title: '请输入正确手机号',
+        icon:'none'
+      })
+      return false
+    }
     this.setData({
       loading:true,
     })
