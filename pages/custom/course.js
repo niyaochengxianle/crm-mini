@@ -6,11 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activeNames:[1,2,3],
+    activeNames:[],
     active:0,
     page: {current: 1, size: 30, keyWord:'',masterId:null,type:0},
     loading: false,
     list:[],
+  },
+  tapScan: function() {
+    wx.scanCode({
+      success: function(res) {
+        console.log(res)
+      }
+    })
   },
   onChange(e){
     this.setData({
@@ -31,7 +38,7 @@ Page({
       ['page.current']:1,
       list:[],
     })
-    that.init() 
+    that.init()
   },
   init() {
     var that = this
@@ -39,15 +46,15 @@ Page({
     var query = {
         current: that.data.page.current,
         size: that.data.page.size,
-        keyWord: that.data.page.keyWord,
+        keyword: that.data.page.keyWord,
         type: that.data.page.type,
-        masterId:masterId
+        customerId:masterId
     }
     that.setData({
         loading: true
     })
     // 请求数据
-    app.wxRequest('GET','/lesson/mini/list',query,e=>{
+    app.wxRequest('GET','/lesson/mini/list/customer',query,e=>{
       var res = e.data
       if (res.code ==200) {
         let arr = that.data.list.concat(res.data)
@@ -78,10 +85,10 @@ Page({
   },
   getActives(){
     let s = this.data.list.length
-    if(s>1){
+    if(s>0){
       let arr=[]
-      for(let i=0; i++;i<s){
-          arr.push(i)
+      for(let i=0; i<s;i++){
+          arr.push(i+'')
       }
       this.setData({
         activeNames:arr
@@ -137,14 +144,14 @@ Page({
       /**
 * 页面相关事件处理函数--监听用户下拉动作
 */
-onPullDownRefresh: function () { 
+onPullDownRefresh: function () {
     var that = this;
     this.setData({
       ['page.current']:1,
       list:[],
     })
     setTimeout(function () {
-        that.init() 
+        that.init()
     }, 500);
 },
 // 上滑加载
@@ -155,7 +162,7 @@ onReachBottom(){
       ['page.current']:current,
     })
     setTimeout(function () {
-      that.init() 
+      that.init()
   }, 500);
 },
 

@@ -73,8 +73,8 @@
           "scene": null
         },
         {
-          "name": "pages/custom/list",
-          "pathName": "pages/custom/list",
+          "name": "pages/custom/course",
+          "pathName": "pages/custom/course",
           "query": "",
           "scene": null
         },

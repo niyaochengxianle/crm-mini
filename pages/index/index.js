@@ -23,7 +23,7 @@ Page({
             },
             //自己的课程 可扫码
             {
-                pagePath: "/pages/custon/course",
+                pagePath: "/pages/custom/course",
                 text: "课程",
                 iconPath:"/image/icon/cs_1.png",
                 selectedIconPath: "/image/icon/cs.png",
@@ -113,7 +113,7 @@ Page({
                 isFirst:false
             })
         }
-        // this.showMenu()
+        this.showMenu()
         this.setData({
             channelInfo: userInfo
         })
@@ -241,14 +241,14 @@ Page({
         //渠道业务员
         let menu1=[
             {
-                path:'/pages/course/list',
+                path:'/pages/custom/course',
                 icon:'/image/icon/lr.png',
-                text:'课程列表-扫码'
+                text:'课程扫码'
             },
             {
                 path:'/pages/custom/list',
                 icon:'/image/icon/cx.png',
-                text:'客户列表-查询'
+                text:'客户查询'
             },
             {
                 path:'/pages/sales/view',
@@ -264,9 +264,14 @@ Page({
                 text:'邀请业务员'
             },
             {
+                path:'/pages/custom/course',
+                icon:'/image/icon/kcsm.png',
+                text:'课程扫码'
+            },
+            {
                 path:'/pages/course/list',
                 icon:'/image/icon/lr.png',
-                text:'课程列表-扫码'
+                text:'录入课程'
             },
             {
                 path:'/pages/admin/index',
@@ -282,9 +287,9 @@ Page({
         //区域业务员
         let menu3=[
             {
-                path:'/pages/course/list',
-                icon:'/image/icon/lr.png',
-                text:'课程列表-扫码'
+                path:'/pages/custom/list',
+                icon:'/image/icon/kcsm.png',
+                text:'课程扫码'
             },
             {
                 path:'/pages/custom/list',
@@ -297,9 +302,9 @@ Page({
         //直营地当地分公司业务员 邀请客户 客户列表 客户查询
         let menu4=[
             {
-                path:'/pages/course/list',
-                icon:'/image/icon/lr.png',
-                text:'课程列表-扫码'
+                path:'/pages/custom/course',
+                icon:'/image/icon/kcsm.png',
+                text:'课程扫码'
             },
             {
                 path:'/pages/custom/list',
@@ -309,9 +314,9 @@ Page({
         ]
         let menu5=[
             {
-                path:'/pages/course/list',
-                icon:'/image/icon/lr.png',
-                text:'课程列表-扫码'
+                path:'/pages/custom/course',
+                icon:'/image/icon/kcsm.png',
+                text:'课程扫码'
             },
             {
                 path:'/pages/admin/invite',
@@ -328,7 +333,7 @@ Page({
             {
                 path:'/pages/custom/list',
                 icon:'/image/icon/cx.png',
-                text:'客户列表-查询'
+                text:'客户查询'
             },
             {
                 path:'/pages/sales/view',

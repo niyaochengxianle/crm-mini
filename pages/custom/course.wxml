@@ -10,12 +10,16 @@
         />
         <van-tabs active="{{ active }}" color="#004ce5" bind:change="onChange">
             <van-tab title="按地区排序">
-                <van-collapse value="{{ activeNames }}">
-                    <van-collapse-item title="北京" name="{{1}}" custom-class="new-item" content-class="content-class">
-                        <view class="course-item">
+                <van-collapse value="{{ activeNames }}" wx:for="{{list}}" wx:key="index">
+                    <van-collapse-item title="{{item.key}}" name="0" custom-class="new-item" content-class="content-class">
+                        <view class="course-item" wx:for="{{item.data}}" wx:for-item="course" wx:for-index="i"  wx:key="i">
                             <view class="l-circle"></view>
-                            <view class="item-name">1222</view>
-                            <view class="item-state">12333555</view>
+                            <view class="item-name">{{course.name}}</view>
+                            <view class="item-state">
+                                <text class="s_a" wx:if="{{course.state==0}}">待开课</text>
+                                <text class="s_w" wx:if="{{course.state==1}}">开课中</text>
+                                <text class="s_o" wx:if="{{course.state==2}}">已结束</text>
+                            </view>
                         </view>
                     </van-collapse-item>
                 </van-collapse>
@@ -42,7 +46,11 @@
                             </van-col>
                             <van-col span="8">{{item.name}}</van-col>
                             <van-col span="4">{{item.areaName}}</van-col>
-                            <van-col span="4" class="course-s">待开课</van-col>
+                            <van-col span="4" class="course-s">
+                                <text class="s_a" wx:if="{{item.state==0}}">待开课</text>
+                                <text class="s_w" wx:if="{{item.state==1}}">开课中</text>
+                                <text class="s_o" wx:if="{{item.state==2}}">已结束</text>
+                            </van-col>
                         </van-row>
                     </view>
                 </view>
@@ -52,8 +60,7 @@
 <loading hidden="{{!loading}}">
     加载中...
 </loading>
-<view class="add-lesson" bind:tap="toAdd">
-    <van-icon name="plus" size="25px" />
-    <text>创建课程</text>
+<view class="add-lesson" bind:tap="tapScan">
+    <van-button color="#004ce5">扫码签到</van-button>
 </view>
 

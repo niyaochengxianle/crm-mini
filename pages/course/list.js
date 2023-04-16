@@ -39,7 +39,7 @@ Page({
     var query = {
         current: that.data.page.current,
         size: that.data.page.size,
-        keyWord: that.data.page.keyWord,
+        keyword: that.data.page.keyWord,
         type: that.data.page.type,
         masterId:masterId
     }
