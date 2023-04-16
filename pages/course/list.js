@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activeNames:[1,2,3],
+    activeNames:[],
     active:0,
     page: {current: 1, size: 30, keyWord:'',masterId:null,type:0},
     loading: false,
@@ -78,10 +78,10 @@ Page({
   },
   getActives(){
     let s = this.data.list.length
-    if(s>1){
+    if(s>0){
       let arr=[]
-      for(let i=0; i++;i<s){
-          arr.push(i)
+      for(let i=0;i<s;i++){
+          arr.push(i+'')
       }
       this.setData({
         activeNames:arr

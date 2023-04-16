@@ -1,2 +1,59 @@
 <!--pages/custom/course.wxml-->
-<text>pages/custom/course.wxml 客户课程列表</text>
+<view class="task-box">
+    <van-search
+        value="{{ page.keyWord }}"
+        bind:change="setVal"
+        bind:search="onSearch"
+        left-icon="/image/admin/search.png"
+        background="#f9f9f9"
+        placeholder="请输入搜索关键词"
+        />
+        <van-tabs active="{{ active }}" color="#004ce5" bind:change="onChange">
+            <van-tab title="按地区排序">
+                <van-collapse value="{{ activeNames }}">
+                    <van-collapse-item title="北京" name="{{1}}" custom-class="new-item" content-class="content-class">
+                        <view class="course-item">
+                            <view class="l-circle"></view>
+                            <view class="item-name">1222</view>
+                            <view class="item-state">12333555</view>
+                        </view>
+                    </van-collapse-item>
+                </van-collapse>
+            </van-tab>
+            <van-tab title="按时间排序">
+                <view class="bg-a">
+                    <view class="bg-h">
+                        <van-row gutter="5" class="table-h">
+                            <van-col span="8">日期</van-col>
+                            <van-col span="8">课程名</van-col>
+                            <van-col span="4">地点</van-col>
+                            <van-col span="4">状态</van-col>
+                        </van-row>
+                    </view>
+                    <view class="bg-w">
+                        <van-row gutter="5" class="table-c" wx:for="{{list}}" wx:key="id">
+                            <van-col span="8">
+                                <view>
+                                    {{item.beginDate}}
+                                </view>
+                                <view>
+                                    {{item.endDate}}
+                                </view>
+                            </van-col>
+                            <van-col span="8">{{item.name}}</van-col>
+                            <van-col span="4">{{item.areaName}}</van-col>
+                            <van-col span="4" class="course-s">待开课</van-col>
+                        </van-row>
+                    </view>
+                </view>
+            </van-tab>
+        </van-tabs>
+</view>
+<loading hidden="{{!loading}}">
+    加载中...
+</loading>
+<view class="add-lesson" bind:tap="toAdd">
+    <van-icon name="plus" size="25px" />
+    <text>创建课程</text>
+</view>
+

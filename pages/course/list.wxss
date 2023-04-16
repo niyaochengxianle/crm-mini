@@ -94,12 +94,12 @@ view .van-search__content {
   font-size: 28rpx;
   font-weight: 400;
 }
-.s-w{
+.s_w{
   color: #FA9A00;
 }
-.s-a{ 
+.s_a{ 
   color: #004CE5;
 }
-.s-o{
+.s_o{
   color:#666666;
 }

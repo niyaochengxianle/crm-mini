@@ -21,8 +21,9 @@ Page({
                 iconPath: "/image/icon/c_1.png",
                 selectedIconPath: "/image/icon/c.png"
             },
+            //自己的课程 可扫码
             {
-                pagePath: "/pages/course/list",
+                pagePath: "/pages/custon/course",
                 text: "课程",
                 iconPath:"/image/icon/cs_1.png",
                 selectedIconPath: "/image/icon/cs.png",
@@ -112,6 +113,7 @@ Page({
                 isFirst:false
             })
         }
+        // this.showMenu()
         this.setData({
             channelInfo: userInfo
         })
@@ -354,6 +356,26 @@ Page({
         if(type==2){
             this.setData({
                 menuList:menu2
+            })
+        }
+        if(type==3){
+            this.setData({
+                menuList:menu3
+            })
+        }
+        if(type==4){
+            this.setData({
+                menuList:menu4
+            })
+        }
+        if(type==5){
+            this.setData({
+                menuList:menu5
+            })
+        }
+        if(type==6){
+            this.setData({
+                menuList:menu6
             })
         }
 

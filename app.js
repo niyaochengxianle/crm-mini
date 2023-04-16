@@ -12,7 +12,6 @@ App({
         // wx.env.appKey = '57C0D1EEA84340D7';//微校appKey
     
         wx.env.tips = '系统开小差了，请稍后再试';
-        console.log(option.query.scene)
         if(option.scene==1011 || option.scene==1012 || option.scene==1013 || option.scene==1047 || option.scene==1048 || option.scene==1049){
             let scene = option.query.scene
             let arr = scene.split(',')

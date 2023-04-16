@@ -48,8 +48,7 @@ page{
   margin-top:20rpx;
 }
 .type-tag{
-  height:54rpx;
-  padding:0 15rpx;
+  padding:10rpx 15rpx;
   background-color: #004ce5;
   line-height: 54rpx;
   color:#fff;
