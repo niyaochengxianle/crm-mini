@@ -13,7 +13,7 @@
   <view class="line-c">
     <view class="l-circle"></view>
     <text class="line-t">电话号码:</text>
-    <text class="line-v line-phone" bindtap="Tel" data-tel="{{info.phone}}">{{info.phone}}</text>
+    <text class="line-v line-phone" bindtap="Tel" data-task="{{info}}" data-tel="{{info.phone}}">{{info.phone}}</text>
   </view>
   <view class="line-c">
     <view class="l-circle"></view>

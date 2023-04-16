@@ -21,15 +21,34 @@ Page({
 },
   // 拨打电话
   Tel: function (e) {
-  	var tel = e.currentTarget.dataset.tel;
+    var tel = e.currentTarget.dataset.tel;
+    let task = e.currentTarget.dataset.task
+    let id =task.id
+    let type = task.type
+    let that = this
     wx.makePhoneCall({
       phoneNumber: tel,
       success: function () {
-        // console.log("拨号成功！")
+        if(type!=2){
+            that.toUpdate(id)
+        }
       },
       fail: function () {
         // console.log("拨号失败！")
       }
+    })
+  },
+  toUpdate(id){
+    let that=this
+    wx.request({
+      url: wx.env.baseUrl+'/channel/customer/'+id+'/2',
+      method:'put',
+      success(e){
+        let res = e.data
+        if(res.code=='200'){
+          that.init()
+        }
+      },
     })
   },
   toPlan(e){

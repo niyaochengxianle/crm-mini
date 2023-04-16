@@ -109,10 +109,8 @@ Page({
                     })
                     wx.redirectTo({url: '/pages/index/index'})
                 }else{
-                    wx.showToast({
-                        title: resp.data,
-                        icon: 'none',
-                        duration: 2000
+                    wx.redirectTo({
+                      url: 'pages/sales/index',
                     })
                 }
             },

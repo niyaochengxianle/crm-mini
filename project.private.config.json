@@ -67,14 +67,14 @@
           "scene": null
         },
         {
-          "name": "pages/custom/index",
-          "pathName": "pages/custom/index",
+          "name": "pages/custom/list",
+          "pathName": "pages/custom/list",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/custom/course",
-          "pathName": "pages/custom/course",
+          "name": "pages/customindex",
+          "pathName": "pages/custom/index",
           "query": "",
           "scene": null
         },
