@@ -8,14 +8,16 @@ Page({
   data: {
     activeNames:[1,2,3],
     active:0,
-    page: {current: 1, size: 30, keyWord:'',masterId:null},
+    page: {current: 1, size: 30, keyWord:'',masterId:null,type:0},
     loading: false,
     list:[],
   },
   onChange(e){
     this.setData({
-      active:e.detail.index
+      active:e.detail.index,
+      ['page.type']:e.detail.index
     })
+    this.init()
   },
   setVal(e){
     this.setData({
@@ -37,13 +39,14 @@ Page({
         current: that.data.page.current,
         size: that.data.page.size,
         keyWord: that.data.page.keyWord,
+        type: that.data.page.type,
         masterId:masterId
     }
     that.setData({
         loading: true
     })
     // 请求数据
-    app.wxRequest('GET','/lesson',query,e=>{
+    app.wxRequest('GET','/lesson/mini/list',query,e=>{
       var res = e.data
       if (res.code ==200) {
         let arr = that.data.list.concat(res.data)

@@ -151,7 +151,7 @@ setVal1(e){
       })
       this.timeVisible1 = false
       if (this.data.form.beginDate && this.data.form.endDate) {
-        //   this.testTime(this.data.form.beginDate, this.data.form.endDate)
+          this.testTime(this.data.form.beginDate, this.data.form.endDate)
       }
   },
   // 确认时间
@@ -161,9 +161,24 @@ setVal1(e){
           timeVisible2: false
       })
       if (this.data.form.beginDate && this.data.form.endDate) {
-            // this.testTime(this.data.form.beginDate, this.data.form.endDate)
+            this.testTime(this.data.form.beginDate, this.data.form.endDate)
         }
   },
+  testTime(date1, date2) {
+    if (moment(date1).isSameOrBefore(date2)) {
+       
+    } else {
+        wx.showToast({
+            title: '结束日期小于开始日期，请重新选择',
+            duration: 2000,
+            icon: "none"
+        })
+        this.setData({
+            'form.endDate':null
+        })
+        
+    }
+},
   clearTime1() {
       this.setData({
           'form.beginDate': '',
