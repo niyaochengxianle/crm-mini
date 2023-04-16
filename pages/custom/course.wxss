@@ -58,7 +58,7 @@ view .van-search__content {
   bottom:30rpx;
   width: 240rpx;
   height: 90rpx;
-  box-shadow: 0rpx 0rpx 20rpx 0rpx rgba(0,0,0,0.1);
+  /* box-shadow: 0rpx 0rpx 20rpx 0rpx rgba(0,0,0,0.1); */
   border-radius: 50%;
   display: flex;
   flex-direction: column;

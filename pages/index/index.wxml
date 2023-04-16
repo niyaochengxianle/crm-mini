@@ -23,7 +23,7 @@
         model:value="{{channelInfo.password}}" 
         input-align="right" label="初始密码" bind:input="setVal"  placeholder="请输入" />
     </view>
-    <view class="info-btn">
+    <view class="info-btn" wx:if="{{isAdmin}}">
         <view class="sub-btn" wx:if="{{isFirst===true}}">
             <van-button color="#004ce5" size="large" block loading="{{loading}}" bind:click="updatePas"> 提 交 </van-button>
         </view>

@@ -20,6 +20,7 @@ Page({
     })
   },
   onChange(e){
+    console.log(e)
     this.setData({
       active:e.detail.index,
       ['page.type']:e.detail.index,

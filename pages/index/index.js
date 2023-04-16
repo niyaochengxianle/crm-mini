@@ -28,12 +28,12 @@ Page({
                 iconPath:"/image/icon/cs_1.png",
                 selectedIconPath: "/image/icon/cs.png",
             },
-            {
-                pagePath: "/",
-                text: "我的",
-                iconPath:"/image/icon/m_1.png",
-                selectedIconPath: "/image/icon/m.png",
-            }
+            // {
+            //     pagePath: "/",
+            //     text: "我的",
+            //     iconPath:"/image/icon/m_1.png",
+            //     selectedIconPath: "/image/icon/m.png",
+            // }
         ],
         menuList:[
             {
@@ -87,6 +87,7 @@ Page({
     onLoad() {
         let that = this
         let type = wx.getStorageSync('type')
+        console.log(type)
         if(type=='0'){
             this.setData({
                 isAdmin:true
