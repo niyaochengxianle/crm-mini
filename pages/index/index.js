@@ -165,7 +165,7 @@ Page({
     },
     getInfo(){
         wx.request({
-            url:wx.env.baseUrl+ '/channel/master'+this.data.channelInfo.id,
+            url:wx.env.baseUrl+ '/channel/master/'+this.data.channelInfo.id,
             method:'get',
             success(e){
                 let res = e.data
@@ -183,9 +183,9 @@ Page({
         })
     },
     toInvite(){
-        let personId=wx.getStorageSync("personId")
-        let type=wx.getStorageSync("type")
-        let url='/pages/admin/invite?id='+ personId +'&type='+type+'&code='+this.data.channelInfo.channelId+'&name='+this.data.channelInfo.channelName
+        // let personId=wx.getStorageSync("personId")
+        // let type=wx.getStorageSync("type")
+        let url='/pages/admin/invite'
         wx.navigateTo({url:url})
 
     },

@@ -9,10 +9,10 @@
         placeholder="请输入搜索关键词"
         />
     <view class="list-c">
-        <view  bind:tap="toDetail" data-task="{{item}}"
+        <view
           class="apply-item" wx:for="{{list}}" wx:key="index"  open-type="navigateTo">
         <view class="box-right">
-            <view class="box-right-item1">
+            <view class="box-right-item1"  bind:tap="toDetail" data-task="{{item}}">
                 <view class="title">{{ item.name }}</view>
                 <view class="list-b">联系方式：{{item.phone}}</view>
             </view>

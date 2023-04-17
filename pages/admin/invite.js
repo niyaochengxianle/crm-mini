@@ -14,13 +14,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let userInfo = wx.getStorageSync('person')
+
+    let personId=wx.getStorageSync("personId")
     this.setData({
-      channelCode:options.code
+      channelCode:userInfo.channelId
     })
     this.setData({
-      channelName:options.name
+      channelName:userInfo.channelName
     })
-    this.getScanCode(options.id,options.type)
+    this.getScanCode(personId,0)
   },
   getScanCode(id,type){
     let url=wx.env.baseUrl+'/wechat/getQrCode/'+id+'/'+type
