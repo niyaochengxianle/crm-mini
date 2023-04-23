@@ -28,6 +28,19 @@ Page({
       }
     })
   },
+    // 拨打电话
+    Tel1: function (e) {
+      var tel = e.currentTarget.dataset.tel;
+      wx.makePhoneCall({
+        phoneNumber: tel,
+        success: function () {
+          //console.log('拨号成功')
+        },
+        fail: function () {
+          // console.log("拨号失败！")
+        }
+      })
+    },
   toUpdate(id){
     let that=this
     wx.request({
