@@ -9,8 +9,6 @@ App({
         wx.env.baseUrl = 'http://47.108.58.40:22115';
         wx.env.groupUrl = 'http://47.108.58.40:22100';
         wx.env.appId = 'wx3950cca53460d310';//小程序appId
-        // wx.env.appKey = '57C0D1EEA84340D7';//微校appKey
-    
         wx.env.tips = '系统开小差了，请稍后再试';
         if(option.scene==1011 || option.scene==1012 || option.scene==1013 || option.scene==1047 || option.scene==1048 || option.scene==1049){
             let scene = option.query.scene
@@ -31,21 +29,6 @@ App({
                 })
              }
         }
-        // 登录
-        // const that = this;
-        // that.getToken();
-    },
-    getToken() {
-        // let storePath = wx.getStorageSync('path')
-        // let indexPath = 'pages/login/login'
-        // let loginPath = 'pages/login/login'
-        // if (storePath && storePath !== indexPath) {
-        //     if (wx.env.token) {
-        //         wx.navigateTo({url: '/' + wx.getStorageSync('path')})
-        //     } else {
-        //         wx.navigateTo({url: '/' + loginPath})
-        //     }
-        // }
     },
     /**
      * 封装request请求
