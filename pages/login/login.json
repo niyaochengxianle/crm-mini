@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "login": "plugin://wxPlugin/login"
-  },
-  "navigationBarTitleText": "请登录"
-}

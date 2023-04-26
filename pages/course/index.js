@@ -1,5 +1,4 @@
 // pages/course/index.js
-const weCropper = require('../../components/cropper/we-cropper.js')
 const moment = require('../../utils/moment.js')
 const areaList= require('../../utils/areaArr')
 moment.locale('en', {

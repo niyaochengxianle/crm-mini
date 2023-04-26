@@ -17,6 +17,7 @@ Page({
       "phone": "",
     },
     info:{},
+    code:'',
     loading:false
   },
   setVal(e){
@@ -82,6 +83,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.login({
+      success:(key)=>{
+        this.setData({
+            code:key.code,
+        })
+        let url="https://api.weixin.qq.com/sns/jscode2session?appid="+wx.env.appKey+"&secret="+wx.env.appSecret+"&js_code="+this.data.code+"&grant_type=authorization_code"
+        wx.request({
+            url:url,
+            success:(res)=>{
+              this.setData({
+                  ['salesInfo.openId']:res.data.openid,
+              })
+            }
+        })
+      }
+     })
     this.setData({
       ['salesInfo.masterId']:options.id
     })

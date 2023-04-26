@@ -47,36 +47,6 @@ Page({
                 icon:'/image/icon/qd.png',
                 text:'客户注册'
             },
-            {
-                path:'/pages/custom/course',
-                icon:'/image/icon/kcsm.png',
-                text:'课程扫码'
-            },
-            {
-                path:'/pages/course/index',
-                icon:'/image/icon/lr.png',
-                text:'录入课程'
-            },
-            {
-                path:'/pages/sales/view',
-                icon:'/image/icon/yq.png',
-                text:'客户邀请'
-            },
-            {
-                path:'/pages/custom/list',
-                icon:'/image/icon/cx.png',
-                text:'客户查询'
-            },
-            {
-                path:'/pages/custom/list',
-                icon:'/image/icon/xx.png',
-                text:'客户信息'
-            },
-            {
-                path:'/pages/admin/index',
-                icon:'/image/icon/qd.png',
-                text:'业务员列表'
-            },
         ],
         notLogin: false,
         active:0,
@@ -84,10 +54,29 @@ Page({
         isAdmin:true,
         loading:false
     },
-    onLoad() {
+    onLoad(options) {
+        console.log(options)
+        let scene =decodeURIComponent(options.scene)
+        let arr = scene.split(',')
+        let id = arr[0]
+        let typePage = arr[1]
+        //0管理员邀请业务员 1业务员邀请可 ,2进入课程签到
+        if(typePage==0){
+            console.log('业务员')
+           let toUrl= '/pages/sales/reg?id='+ id +'&type='+typePage
+           wx.navigateTo({
+             url: toUrl,
+           })
+        }
+        if(typePage==1){
+            console.log('客户')
+            let toUrl= '/pages/custom/reg?id='+ id +'&type='+typePage
+            wx.navigateTo({
+              url: toUrl,
+            })
+         }
         let that = this
         let type = wx.getStorageSync('type')
-        console.log(type)
         if(type=='0'){
             this.setData({
                 isAdmin:true
@@ -164,13 +153,14 @@ Page({
         })
     },
     getInfo(){
+        let that = this
         wx.request({
             url:wx.env.baseUrl+ '/channel/master/'+this.data.channelInfo.id,
             method:'get',
             success(e){
                 let res = e.data
                 if(res.code=='200'){
-                    this.setData({
+                    that.setData({
                         channelInfo:res.data
                     })
                 }
@@ -179,7 +169,7 @@ Page({
     },
     setVal(e){
         this.setData({
-           [' channelInfo.passWord']:e.detail
+           ['channelInfo.password']:e.detail
         })
     },
     toInvite(){

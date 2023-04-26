@@ -19,8 +19,8 @@
           "scene": null
         },
         {
-          "name": "pages/login/login",
-          "pathName": "pages/login/login",
+          "name": "pages/login/input",
+          "pathName": "pages/login/input",
           "query": "",
           "scene": null
         },
@@ -73,7 +73,7 @@
           "scene": null
         },
         {
-          "name": "pages/customindex",
+          "name": "pages/custom/index",
           "pathName": "pages/custom/index",
           "query": "",
           "scene": null
@@ -100,6 +100,42 @@
           "name": "客户注册",
           "pathName": "pages/custom/reg",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/custom/course",
+          "pathName": "pages/custom/course",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/admin/invite",
+          "pathName": "pages/index/index",
+          "query": "scene=1%2C0",
+          "scene": 1011,
+          "partialCompile": {
+            "enabled": false,
+            "pages": [
+              "pages/sales/reg"
+            ]
+          }
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "scene=1%2C0",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "scene=1%2C0",
+          "scene": null
+        },
+        {
+          "name": "pages/sales/reg",
+          "pathName": "pages/index/index",
+          "query": "scene=1%2C0",
           "scene": null
         }
       ]

@@ -2,10 +2,14 @@ const app = getApp()
 
 Page({
     data: {
-        phone: '13154674842',
-        password: '123456',
+        phone: '15348796547',
+        password: '1234567',
+        // phone:'',
+        // password:'',
         loading: false,
         code:'',
+        wxOpenId:'',
+        nickName:'',
     },
     // 登录
     login() {
@@ -48,6 +52,7 @@ Page({
                     const person = resp.data.person;
                     app.globalData.userInfo=person
                     wx.setStorageSync('person', person);
+                    that.updatePas(person)
                     wx.setStorageSync('personId', personId);
                     wx.setStorageSync('type',type );
                     wx.showToast({
@@ -110,7 +115,7 @@ Page({
                     wx.redirectTo({url: '/pages/index/index'})
                 }else{
                     wx.redirectTo({
-                      url: 'pages/sales/index',
+                      url: '/pages/sales/index',
                     })
                 }
             },
@@ -143,6 +148,7 @@ Page({
             data:obj,
             success(e) {
                 const resp = e.data;
+                console.log(resp)
                 if (resp.code === "200") {
                     const personId = resp.data.personId;
                     const type = resp.data.type;
@@ -185,6 +191,15 @@ Page({
               this.setData({
                   code:key.code,
               })
+            //   let url="https://api.weixin.qq.com/sns/jscode2session?appid="+wx.env.appKey+"&secret="+wx.env.appSecret+"&js_code="+this.data.code+"&grant_type=authorization_code"
+            //   wx.request({
+            //       url:url,
+            //       success:(res)=>{
+            //         this.setData({
+            //             wxOpenId:res.data.openid,
+            //         })
+            //       }
+            //   })
             }
         })
     },

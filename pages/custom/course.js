@@ -15,7 +15,11 @@ Page({
   tapScan: function() {
     wx.scanCode({
       success: function(res) {
-        console.log(res)
+        wx.showToast({
+            title: '扫码签到成功',
+            icon: 'none',
+            duration: 2000
+        })
       }
     })
   },
