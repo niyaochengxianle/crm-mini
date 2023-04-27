@@ -11,7 +11,7 @@ Page({
       "areaName": "",
       "channelId": "",
       "channelName": "",
-      "masterId": 1,
+      "staffId": "",
       "masterName": "",
       "name": "",
       "openId": "",
@@ -75,7 +75,7 @@ Page({
             content: '注册成功，即将前往登录',
             success (res) {
               if (res.confirm) {
-                wx.navigateTo({
+                wx.redirectTo({
                   url: '/pages/login/input',
                 })
               }
@@ -129,7 +129,7 @@ Page({
     })
     this.setData({
       areaList:areaList.areaList,
-      ['customInfo.masterId']:options.id,
+      ['customInfo.staffId']:options.id,
     })
     this.getInfo(options.id)
   },

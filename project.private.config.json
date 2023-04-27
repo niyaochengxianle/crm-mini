@@ -55,8 +55,8 @@
           "scene": null
         },
         {
-          "name": "pages/sales/reg",
-          "pathName": "pages/sales/reg",
+          "name": "pages/sales/view",
+          "pathName": "pages/index/index",
           "query": "",
           "scene": null
         },
@@ -123,7 +123,7 @@
         {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
-          "query": "scene=1%2C0",
+          "query": "scene=1%2C2",
           "scene": null
         },
         {
@@ -134,6 +134,48 @@
         },
         {
           "name": "pages/sales/reg",
+          "pathName": "pages/index/index",
+          "query": "scene=1%2C0",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "scene=1%2C0",
+          "scene": null
+        },
+        {
+          "name": "pages/course/sign",
+          "pathName": "pages/course/sign",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/admin/invite",
+          "pathName": "pages/index/index",
+          "query": "scene=1%2C0",
+          "scene": null
+        },
+        {
+          "name": "pages/sales/reg",
+          "pathName": "pages/sales/reg",
+          "query": "scene=1%2C0",
+          "scene": null
+        },
+        {
+          "name": "pages/login/input",
+          "pathName": "pages/login/input",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/input",
+          "pathName": "pages/login/input",
+          "query": "scene=1%2C0",
+          "scene": null
+        },
+        {
+          "name": "pages/course/sign",
           "pathName": "pages/index/index",
           "query": "scene=1%2C0",
           "scene": null

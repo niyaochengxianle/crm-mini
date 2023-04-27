@@ -55,7 +55,6 @@ Page({
         loading:false
     },
     onLoad(options) {
-        console.log(options)
         let scene =decodeURIComponent(options.scene)
         let arr = scene.split(',')
         let id = arr[0]
@@ -64,16 +63,26 @@ Page({
         if(typePage==0){
             console.log('业务员')
            let toUrl= '/pages/sales/reg?id='+ id +'&type='+typePage
-           wx.navigateTo({
+           wx.redirectTo({
              url: toUrl,
            })
+           return
         }
         if(typePage==1){
             console.log('客户')
             let toUrl= '/pages/custom/reg?id='+ id +'&type='+typePage
-            wx.navigateTo({
+            wx.redirectTo({
               url: toUrl,
             })
+            return
+         }
+         if(typePage==2){
+            console.log('课程')
+            let toUrl= '/pages/course/sign?id='+ id +'&type='+typePage
+            wx.redirectTo({
+              url: toUrl,
+            })
+            return
          }
         let that = this
         let type = wx.getStorageSync('type')
@@ -89,7 +98,7 @@ Page({
         let userInfo = wx.getStorageSync('person')
         let personId=wx.getStorageSync("personId")
         if(!personId){
-            wx.navigateTo({
+            wx.redirectTo({
               url: '/pages/login/input',
             })
             return 
@@ -163,6 +172,7 @@ Page({
                     that.setData({
                         channelInfo:res.data
                     })
+                    wx.setStorageSync('person', res.data);
                 }
             }
         })

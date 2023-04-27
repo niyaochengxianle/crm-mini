@@ -15,7 +15,8 @@
     "pages/custom/detail",
     "pages/custom/reg",
     "pages/course/index",
-    "pages/course/list"
+    "pages/course/list",
+    "pages/course/sign"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -2,10 +2,10 @@ const app = getApp()
 
 Page({
     data: {
-        phone: '15348796547',
-        password: '1234567',
-        // phone:'',
-        // password:'',
+        // phone: '15348796547',
+        // password: '1234567',
+        phone:'',
+        password:'',
         loading: false,
         code:'',
         wxOpenId:'',
@@ -52,7 +52,6 @@ Page({
                     const person = resp.data.person;
                     app.globalData.userInfo=person
                     wx.setStorageSync('person', person);
-                    that.updatePas(person)
                     wx.setStorageSync('personId', personId);
                     wx.setStorageSync('type',type );
                     wx.showToast({
@@ -186,20 +185,38 @@ Page({
         })
     },
     onLoad: function (options) {
+        let scene =decodeURIComponent(options.scene)
+        let arr = scene.split(',')
+        let id = arr[0]
+        let typePage = arr[1]
+        //0管理员邀请业务员 1业务员邀请客户 ,2进入课程签到
+        if(typePage==0){
+            console.log('业务员')
+           let toUrl= '/pages/sales/reg?id='+ id +'&type='+typePage
+           wx.redirectTo({
+             url: toUrl,
+           })
+           return
+        }
+        if(typePage==1){
+            let toUrl= '/pages/custom/reg?id='+ id +'&type='+typePage
+            wx.redirectTo({
+              url: toUrl,
+            })
+            return
+         }
+         if(typePage==2){
+            let toUrl= '/pages/course/sign?id='+ id +'&type='+typePage
+            wx.redirectTo({
+              url: toUrl,
+            })
+            return
+         }
         wx.login({
             success:(key)=>{
               this.setData({
                   code:key.code,
               })
-            //   let url="https://api.weixin.qq.com/sns/jscode2session?appid="+wx.env.appKey+"&secret="+wx.env.appSecret+"&js_code="+this.data.code+"&grant_type=authorization_code"
-            //   wx.request({
-            //       url:url,
-            //       success:(res)=>{
-            //         this.setData({
-            //             wxOpenId:res.data.openid,
-            //         })
-            //       }
-            //   })
             }
         })
     },

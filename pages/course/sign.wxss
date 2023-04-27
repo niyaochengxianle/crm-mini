@@ -1,0 +1,18 @@
+/* pages/course/sign.wxss */
+page{
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sales-img{
+  width:80rpx;
+  height:80rpx;
+  margin:290rpx auto 28rpx;
+}
+.sales-s{
+  font-size:36rpx;
+  color:#333;
+  text-align: center;
+  margin-bottom: 25rpx;
+}

@@ -10,7 +10,7 @@ Page({
       "areaName": "",
       "channelId": "",
       "channelName": "",
-      "masterId": 1,
+      "masterId": '',
       "masterName": "",
       "name": "",
       "openId": "",
@@ -65,7 +65,7 @@ Page({
             content: '注册成功，即将前往登录',
             success (res) {
               if (res.confirm) {
-                wx.navigateTo({
+                wx.redirectTo({
                   url: '/pages/login/input',
                 })
               }
@@ -99,6 +99,7 @@ Page({
         })
       }
      })
+     console.log(options.id)
     this.setData({
       ['salesInfo.masterId']:options.id
     })

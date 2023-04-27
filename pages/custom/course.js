@@ -11,20 +11,70 @@ Page({
     page: {current: 1, size: 30, keyWord:'',masterId:null,type:0},
     loading: false,
     list:[],
+    signInfo:{
+      courseId:'',
+      customerId:'',
+    }
   },
   tapScan: function() {
     wx.scanCode({
       success: function(res) {
-        wx.showToast({
-            title: '扫码签到成功',
-            icon: 'none',
+        let scene =decodeURIComponent(res.scene)
+        let arr = scene.split(',')
+        let id = arr[0]
+        let typePage = arr[1]
+        this.setData({
+          ['signInfo.courseId']:id,
+          ['signInfo.customerId']:wx.getStorageSync("personId")
+        })
+        this.signCourse()
+      }
+    })
+  },
+  signCourse(){
+    that.setData({
+      loading:true
+    })
+    let that = this
+    wx.request({
+      url: wx.env.baseUrl+'/lesson/sign',
+      method:'post',
+      data:that.signInfo,
+      success(e){
+        const resp = e.data;
+        if (resp.code === "200") {
+          wx.showToast({
+            title: "课程签到成功",
+            icon: 'fail',
             duration: 2000
+          })
+          that.setData({
+            loading:false
+          })
+        }else{
+            wx.showToast({
+                title: resp.data,
+                icon: 'fail',
+                duration: 2000
+            })
+            that.setData({
+              loading:false,
+            })
+        }
+      },fail(e){
+        wx.showToast({
+            title: '签到失败',
+            icon: 'fail',
+            duration: 2000
+        })
+      },complete(){
+        that.setData({
+          loading:false
         })
       }
     })
   },
   onChange(e){
-    console.log(e)
     this.setData({
       active:e.detail.index,
       ['page.type']:e.detail.index,
