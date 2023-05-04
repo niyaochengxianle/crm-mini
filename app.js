@@ -39,16 +39,13 @@ App({
         })
     },
     getCode(){
-        console.log('getCode')
         wx.login({
             success:(key)=>{
                 wx.setStorageSync('wxCode', key.code);
-                console.log(key.code)
                 wx.request({
                   url: wx.env.baseUrl+'/wechat?code='+key.code,
                   success(e){
                       let res = e.data
-                      console.log(res,'appsuc')
                       if(res.code=='200'){
                         wx.setStorageSync('wxOpenId', res.data);
                       }else{

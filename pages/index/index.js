@@ -180,7 +180,7 @@ Page({
         // let personId=wx.getStorageSync("personId")
         // let type=wx.getStorageSync("type")
         let url='/pages/admin/invite'
-        wx.navigateTo({url:url})
+        wx.redirectTo({url:url})
 
     },
     toLogin() {
@@ -376,6 +376,27 @@ Page({
         if(type==6){
             this.setData({
                 menuList:menu6
+            })
+        }
+        let tab=[
+            {
+                pagePath: "/pages/index/index",
+                text: "首页",
+                iconPath: "/image/icon/h_1.png",
+                selectedIconPath: "/image/icon/h.png",
+            },
+           
+            //自己的课程 可扫码
+            {
+                pagePath: "/pages/custom/course",
+                text: "课程",
+                iconPath:"/image/icon/cs_1.png",
+                selectedIconPath: "/image/icon/cs.png",
+            },
+        ]
+        if(type==7){
+            this.setData({
+                tabList:tab
             })
         }
 
