@@ -31,6 +31,10 @@
               <van-icon name="arrow"/>
           </view>
         </van-field>
+        <view class="input-l">
+          <text>期望参课地</text>
+        </view>
+        <van-field label-class="van-field_r" size="large" bind:input="setValP" input-class="van-field_r" model:value="{{customInfo.hopePlace}}"  placeholder="请输入"  />
     </view>
     <view class="content-btn">
       <van-button color="#004ce5" loading="{{loading}}" block bind:tap="save">提 交</van-button>

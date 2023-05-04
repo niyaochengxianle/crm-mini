@@ -19,15 +19,15 @@ Page({
   tapScan: function() {
     wx.scanCode({
       success: function(res) {
-        let scene =decodeURIComponent(res.scene)
-        let arr = scene.split(',')
-        let id = arr[0]
-        let typePage = arr[1]
-        this.setData({
-          ['signInfo.courseId']:id,
-          ['signInfo.customerId']:wx.getStorageSync("personId")
-        })
-        this.signCourse()
+        // let scene =decodeURIComponent(res.scene)
+        // let arr = scene.split(',')
+        // let id = arr[0]
+        // let typePage = arr[1]
+        // this.setData({
+        //   ['signInfo.courseId']:id,
+        //   ['signInfo.customerId']:wx.getStorageSync("personId")
+        // })
+        // this.signCourse()
       }
     })
   },

@@ -5,40 +5,8 @@ App({
     onLaunch(option) {
         wx.env.baseUrl = 'https://crm.bjzqlaw.com/zqApi';
         wx.env.groupUrl = 'https://crm.bjzqlaw.com';
-        wx.env.appSecret="aeb28780b5b7a09519a937e0d4701c56",
-        wx.env.appKey="wxe3e8a7da016f7fc9"
         wx.env.tips = '系统开小差了，请稍后再试';
-        if(option.scene==1011 || option.scene==1012 || option.scene==1013 || option.scene==1047 || option.scene==1048 || option.scene==1049){
-            let scene =decodeURIComponent(options.scene)
-            let arr = scene.split(',')
-            let id = arr[0]
-            let typePage = arr[1]
-            //0管理员邀请业务员 1业务员邀请可 ,2进入课程签到
-            if(typePage==0){
-                console.log('业务员')
-               let toUrl= '/pages/sales/reg?id='+ id +'&type='+typePage
-               wx.redirectTo({
-                 url: toUrl,
-               })
-               return
-            }
-            if(typePage==1){
-                console.log('客户')
-                let toUrl= '/pages/custom/reg?id='+ id +'&type='+typePage
-                wx.redirectTo({
-                  url: toUrl,
-                })
-                return
-             }
-             if(typePage==2){
-                console.log('课程')
-                let toUrl= '/pages/course/sign?id='+ id +'&type='+typePage
-                wx.redirectTo({
-                  url: toUrl,
-                })
-                return
-             }
-        }
+        this.getCode();
     },
     /**
      * 封装request请求
@@ -67,6 +35,37 @@ App({
             },
             complete(res) {
                 complete(res)
+            }
+        })
+    },
+    getCode(){
+        console.log('getCode')
+        wx.login({
+            success:(key)=>{
+                wx.setStorageSync('wxCode', key.code);
+                console.log(key.code)
+                wx.request({
+                  url: wx.env.baseUrl+'/wechat?code='+key.code,
+                  success(e){
+                      let res = e.data
+                      console.log(res,'appsuc')
+                      if(res.code=='200'){
+                        wx.setStorageSync('wxOpenId', res.data);
+                      }else{
+                          wx.showToast({
+                            title: '请重新进入小程序',
+                            icon:'none',
+                            duration:'2000'
+                          })
+                      }
+                  },fail(e){
+                    wx.showToast({
+                        title: '请重新进入小程序',
+                        icon:'none',
+                        duration:'2000'
+                      })
+                  }
+                })
             }
         })
     },

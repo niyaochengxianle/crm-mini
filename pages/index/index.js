@@ -38,14 +38,8 @@ Page({
         menuList:[
             {
                 path:'/pages/sales/index',
-                // path:'/pages/sales/reg',
                 icon:'/image/icon/qd.png',
                 text:'业务员注册'
-            },
-            {
-                path:'/pages/custom/reg',
-                icon:'/image/icon/qd.png',
-                text:'客户注册'
             },
         ],
         notLogin: false,

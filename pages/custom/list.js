@@ -7,7 +7,7 @@ Page({
    */
   data: {
     list: [],
-    page: {current: 1, size: 30, keyWord:'',masterId:null},
+    page: {current: 1, size: 30, keyWord:'',staffId:null},
     loading: false
   },
   setVal(e){
@@ -97,12 +97,12 @@ onReachBottom(){
 },
 init() {
     var that = this
-    let masterId = wx.getStorageSync('personId')
+    let staffId = wx.getStorageSync('personId')
     var query = {
         current: that.data.page.current,
         size: that.data.page.size,
         keyWord: that.data.page.keyWord,
-        masterId:masterId
+        staffId:staffId
     }
     that.setData({
         loading: true

@@ -34,6 +34,8 @@ Page({
     return /^1[2-9]\d{9}$/.test(phone)
   },
   save(){
+    console.log(this.data.salesInfo)
+    let that = this
     if(!this.data.salesInfo.name){
       wx.showToast({
       title: '请输入姓名',
@@ -49,10 +51,16 @@ Page({
       })
       return false
     }
-    this.setData({
+    if(!this.data.salesInfo.openId){
+      wx.showToast({
+      title: '未获取到openId',
+      icon:'none'
+      })
+      return false
+    }
+    that.setData({
       loading:true,
     })
-    let that=this
     wx.request({
       url: wx.env.baseUrl+'/channel/staff',
       method:'post',
@@ -71,10 +79,26 @@ Page({
               }
             }
           })
+        }else{
+          wx.showToast({
+            title: res.data,
+            icon:'none',
+            duration:2000,
+          })
+          that.setData({
+            loading:false,
+          })
         }
-      },fail(e){},complete(e){
+      },fail(e){
+        wx.showToast({
+          title: e,
+          icon:'none',
+          duration:2000,
+        })
+
+      },complete(e){
         that.setData({
-          loading:false
+          loading:false,
         })
       }
     })
@@ -82,30 +106,22 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    wx.login({
-      success:(key)=>{
-        this.setData({
-            code:key.code,
-        })
-        let url="https://api.weixin.qq.com/sns/jscode2session?appid="+wx.env.appKey+"&secret="+wx.env.appSecret+"&js_code="+this.data.code+"&grant_type=authorization_code"
-        wx.request({
-            url:url,
-            success:(res)=>{
-              this.setData({
-                  ['salesInfo.openId']:res.data.openid,
-              })
-            }
-        })
-      }
-     })
-     console.log(options.id)
-    this.setData({
-      ['salesInfo.masterId']:options.id
-    })
-    this.getInfo(options.id)
+  onLoad: function (option) {
+    this.getCode()
+    console.log(option)
+    if(option.scene){
+      let scene =decodeURIComponent(option.scene)
+      let arr = scene.split(',')
+      let id = arr[0]
+      // let typePage = arr[1]
+      this.setData({
+        ['salesInfo.masterId']:id,
+      })
+      this.getInfo(id)
+    } 
   },
   getInfo(id){
+    console.log(id)
     this.setData({
       loading:true
     })
@@ -140,6 +156,41 @@ Page({
       }
     })
   },
+  getCode(){
+    console.log('getCode')
+    let that = this
+    wx.login({
+        success:(key)=>{
+            wx.setStorageSync('wxCode', key.code);
+            wx.request({
+              url: wx.env.baseUrl+'/wechat?code='+key.code,
+              success(e){
+                  let res = e.data
+                  console.log(res,'reg-sus')
+                  if(res.code=='200'){
+                    wx.setStorageSync('wxOpenId', res.data);
+                    that.setData({
+                      ['salesInfo.openId']:res.data,
+                    })
+                  }else{
+                      wx.showToast({
+                        title: '请重新进入小程序',
+                        icon:'none',
+                        duration:'2000'
+                      })
+                  }
+              },fail(e){
+                console.log(e,'fail')
+                wx.showToast({
+                    title: '请重新进入小程序',
+                    icon:'none',
+                    duration:'2000'
+                  })
+              }
+            })
+        }
+    })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -16,6 +16,7 @@ Page({
       "name": "",
       "openId": "",
       "phone": "",
+      "hopePlace":'',
     },
     info:{},
     loading:false,
@@ -36,7 +37,13 @@ Page({
       ['customInfo.phone']:e.detail
     })
   },
+  setValP(e){
+    this.setData({
+      ['customInfo.hopePlace']:e.detail
+    })
+  },
   save(){
+    console.log(this.data.customInfo)
     if(!this.data.customInfo.name){
       wx.showToast({
       title: '请输入姓名',
@@ -110,28 +117,56 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    wx.login({
-      success:(key)=>{
-        this.setData({
-            code:key.code,
-        })
-        let url="https://api.weixin.qq.com/sns/jscode2session?appid="+wx.env.appKey+"&secret="+wx.env.appSecret+"&js_code="+this.data.code+"&grant_type=authorization_code"
-        wx.request({
-            url:url,
-            success:(res)=>{
-              this.setData({
-                  ['customInfo.openId']:res.data.openid,
-              })
-            }
-        })
-      }
-    })
+  onLoad: function (option) {
+    this.getCode()
+    if(option.scene){
+      let scene =decodeURIComponent(option.scene)
+      let arr = scene.split(',')
+      let id = arr[0]
+      // let typePage = arr[1]
+      this.setData({
+        ['customInfo.staffId']:id,
+      })
+      this.getInfo(id)
+    } 
     this.setData({
       areaList:areaList.areaList,
-      ['customInfo.staffId']:options.id,
     })
     this.getInfo(options.id)
+  },
+  getCode(){
+    console.log('getCode')
+    let that = this
+    wx.login({
+        success:(key)=>{
+            wx.setStorageSync('wxCode', key.code);
+            console.log(key.code,'reg,code')
+            wx.request({
+              url: wx.env.baseUrl+'/wechat?code='+key.code,
+              success(e){
+                  let res = e.data
+                  if(res.code=='200'){
+                    wx.setStorageSync('wxOpenId', res.data);
+                    that.setData({
+                      ['customInfo.openId']:res.data,
+                    })
+                  }else{
+                      wx.showToast({
+                        title: '请重新进入小程序',
+                        icon:'none',
+                        duration:'2000'
+                      })
+                  }
+              },fail(e){
+                wx.showToast({
+                    title: '请重新进入小程序',
+                    icon:'none',
+                    duration:'2000'
+                  })
+              }
+            })
+        }
+    })
   },
   getInfo(id){
     this.setData({

@@ -7,7 +7,6 @@ Page({
         phone:'',
         password:'',
         loading: false,
-        code:'',
         wxOpenId:'',
         nickName:'',
     },
@@ -34,7 +33,7 @@ Page({
             loading: true,
         });
         var obj = {
-            code:this.data.code,
+            openId:wx.getStorageSync('wxOpenId'),
             type:'0',
             phone:this.data.phone,
             password:this.data.password
@@ -88,7 +87,7 @@ Page({
             loading: true,
         });
         var obj = {
-            code:this.data.code,
+            openId:wx.getStorageSync('wxOpenId'),
             type:'1',
         }
         var that=this
@@ -102,7 +101,6 @@ Page({
                     const personId = resp.data.personId;
                     const type = resp.data.type;
                     const person = resp.data.person;
-                    that.globalData.userInfo=person
                     wx.setStorageSync('person', person);
                     wx.setStorageSync('personId', personId);
                     wx.setStorageSync('type',type );
@@ -137,7 +135,7 @@ Page({
             loading: true,
         });
         var obj = {
-            code:this.data.code,
+            openId:wx.getStorageSync('wxOpenId'),
             type:'2',
         }
         var that=this
@@ -155,7 +153,6 @@ Page({
                     wx.setStorageSync('person', person);
                     wx.setStorageSync('personId', personId);
                     wx.setStorageSync('type',type );
-                    that.globalData.userInfo=person
                     wx.showToast({
                         title: '登录成功',
                         icon: 'success',
@@ -212,12 +209,5 @@ Page({
             })
             return
          }
-        wx.login({
-            success:(key)=>{
-              this.setData({
-                  code:key.code,
-              })
-            }
-        })
     },
 });

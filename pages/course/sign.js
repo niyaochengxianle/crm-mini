@@ -6,8 +6,9 @@ Page({
    */
   data: {
     signInfo:{
-      courseId:'',
+      lessonId:'',
       customerId:'',
+      openId:'',
     },
     msg:'扫码签到成功',
     loading:false
@@ -16,20 +17,57 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.setData({
-      ['signInfo.courseId']:options.id,
-      ['signInfo.customerId']:wx.getStorageSync("personId")
-    })
-    if(!this.data.signInfo.courseId){
-      wx.navigateTo({
-        url: '/pages/login/input',
+  onLoad: function (option) {
+    this.getCode()
+    if(option.scene){
+      let scene =decodeURIComponent(option.scene)
+      let arr = scene.split(',')
+      let id = arr[0]
+      // let typePage = arr[1]
+      this.setData({
+        ['signInfo.lessonId']:id,
       })
-    }else{
-      this.signCourse()
-    }
+    } 
+    this.setData({
+      ['signInfo.customerId']:wx.getStorageSync("personId"),
+    })
+  },
+  getCode(){
+    let that = this
+    wx.login({
+        success:(key)=>{
+            wx.setStorageSync('wxCode', key.code);
+            console.log(key.code,'sign,code')
+            wx.request({
+              url: wx.env.baseUrl+'/wechat?code='+key.code,
+              success(e){
+                  let res = e.data
+                  if(res.code=='200'){
+                    wx.setStorageSync('wxOpenId', res.data);
+                    that.setData({
+                      ['signInfo.openId']:res.data,
+                    })
+                    that.signCourse()
+                  }else{
+                      wx.showToast({
+                        title: '请重新进入小程序',
+                        icon:'none',
+                        duration:'2000'
+                      })
+                  }
+              },fail(e){
+                wx.showToast({
+                    title: '请重新进入小程序',
+                    icon:'none',
+                    duration:'2000'
+                  })
+              }
+            })
+        }
+    })
   },
   signCourse(){
+    console.log(this.data.signInfo)
     this.setData({
       loading:true
     })
@@ -37,7 +75,7 @@ Page({
     wx.request({
       url: wx.env.baseUrl+'/lesson/sign',
       method:'post',
-      data:that.signInfo,
+      data:that.data.signInfo,
       success(e){
         const resp = e.data;
         if (resp.code === "200") {
