@@ -15,6 +15,14 @@
             <view class="box-right-item1"  bind:tap="toDetail" data-task="{{item}}">
                 <view class="title">{{ item.name }}</view>
                 <view class="list-b">联系方式：{{item.phone}}</view>
+                <view class="add-item">
+                    <view> 
+                        业务员姓名：{{item.staffName}}
+                    </view>
+                    <view> 
+                        渠道：{{item.channelName}}
+                    </view>
+                </view>
             </view>
             <view class="list-y">
                 <text wx:if="{{item.state==2}}"> 已回访</text>

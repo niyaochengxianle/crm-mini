@@ -10,7 +10,7 @@ page {
   border-radius: 10rpx;
 }
 .apply-item {
-  height:150rpx;
+  min-height:150rpx;
   display: flex;
   padding-right:30rpx;
   padding-top:40rpx;
@@ -18,7 +18,6 @@ page {
   margin-left:30rpx;
   border-bottom:2rpx solid #e6e6e6;
 }
-
 .box-right {
   flex: 1;
   display: flex;
@@ -54,6 +53,14 @@ page {
   color:#666666;
   font-size:28rpx;
   margin-top:20rpx;
+}
+.add-item{
+  color:#666666;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
 }
 .btn-d .van-button{
     height:60rpx;

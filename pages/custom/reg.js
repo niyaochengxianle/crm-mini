@@ -80,6 +80,7 @@ Page({
           wx.showModal({
             title: '提示',
             content: '注册成功，即将前往登录',
+            showCancel:false,
             success (res) {
               if (res.confirm) {
                 wx.redirectTo({
