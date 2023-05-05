@@ -70,13 +70,11 @@ Page({
         if(res.code=='200'){
           wx.showModal({
             title: '提示',
-            content: '注册成功，即将前往登录',
+            content: '注册成功，即将前往首页',
             showCancel:false,
             success (res) {
               if (res.confirm) {
-                wx.redirectTo({
-                  url: '/pages/login/input',
-                })
+                that.login1()
               }
             }
           })
@@ -191,6 +189,49 @@ Page({
             })
         }
     })
+},
+login1() {
+  this.setData({
+      loading: true,
+  });
+  var obj = {
+      openId:wx.getStorageSync('wxOpenId'),
+      type:'1',
+  }
+  var that=this
+  wx.request({
+      url: wx.env.baseUrl + `/wechat`,
+      method: "POST",
+      data:obj,
+      success(e) {
+          const resp = e.data;
+          if (resp.code === "200") {
+              const personId = resp.data.personId;
+              const type = resp.data.type;
+              const person = resp.data.person;
+              wx.setStorageSync('person', person);
+              wx.setStorageSync('personId', personId);
+              wx.setStorageSync('type',type );
+              wx.redirectTo({url: '/pages/index/index'})
+          }else{
+              wx.redirectTo({
+                url: '/pages/login/input',
+              })
+          }
+      },
+      fail(res) {
+          wx.showToast({
+              title: '登录失败，请稍后重试',
+              icon: 'none',
+              duration: 2000
+          })
+      },
+      complete(){
+          that.setData({
+              loading: false,
+          });
+      }
+  })
 },
   /**
    * 生命周期函数--监听页面初次渲染完成

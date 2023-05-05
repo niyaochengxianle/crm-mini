@@ -130,6 +130,7 @@ Page({
             }
         })
     },
+    //游客登录
     login2() {
         this.setData({
             loading: true,

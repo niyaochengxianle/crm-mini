@@ -7,6 +7,10 @@ App({
         wx.env.groupUrl = 'https://crm.bjzqlaw.com';
         wx.env.tips = '系统开小差了，请稍后再试';
         this.getCode();
+        let type= wx.getStorageSync('type')
+        if(type==1||type==3||type==6){
+            this.check()
+        }
     },
     /**
      * 封装request请求
@@ -66,6 +70,50 @@ App({
             }
         })
     },
+    getInfo(){
+        let id = wx.getStorageSync('personId')
+        if(!id){
+            wx.redirectTo({
+              url: '/pages/login/input',
+            })
+        }
+        wx.request({
+          url: wx.env.baseUrl +"/channel/staff/"+id,
+          method:'get',
+          success(e){
+            var res = e.data
+            if(res.code==='200'){
+                console.log(res.data.isEnable)
+              if(res.data.isEnable===false){
+                  wx.redirectTo({
+                    url: '/pages/login/input',
+                  })
+              }
+            }else{
+                wx.showToast({
+                  title: res.msg,
+                  icon: 'none',
+                  duration: 2000
+              })
+            }
+          },fail(e){
+            wx.showToast({
+              title: e.errMsg,
+              icon: 'none',
+              duration: 2000
+            })
+          },complete(e){
+          }
+        })
+      },
+      check(){
+          let that =this
+        setInterval(
+        function () {
+            // TODO 你需要无限循环执行的任务
+            that.getInfo()
+        }, 2000);       
+      },
     globalData: {
         userInfo: null,
     }
